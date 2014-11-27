@@ -19,44 +19,25 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.head;
+package com.sangupta.htmlgen.tags.body;
 
-import com.sangupta.htmlgen.core.HtmlElement;
+import com.sangupta.htmlgen.core.HtmlBodyElement;
+import com.sangupta.htmlgen.tags.Text;
 
 /**
  * 
  * @author sangupta
  *
  */
-public class Link extends HtmlElement<Link> {
-
-	public Link() {
-		super("link", Link.class);
+public class H2 extends HtmlBodyElement<H2> {
+	
+	public H2() {
+		super("h2", H2.class);
 	}
 	
-	public Link(String href) {
+	public H2(String text) {
 		this();
-		this.href(href);
+		this.addChild(new Text(text));
 	}
-	
-	public Link rel(String rel) {
-		this.attr("rel", rel);
-		return this;
-	}
-	
-	public Link href(String href) {
-		this.attr("href", href);
-		return this;
-	}
-	
-	public Link type(String type) {
-		this.attr("type", type);
-		return this;
-	}
-	
-	public Link title(String title) {
-		this.attr("title", title);
-		return this;
-	}
-	
+
 }

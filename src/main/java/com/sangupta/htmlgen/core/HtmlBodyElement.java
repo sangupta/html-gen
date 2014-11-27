@@ -26,6 +26,7 @@ import java.util.Set;
 
 import com.sangupta.htmlgen.tags.body.Div;
 import com.sangupta.htmlgen.tags.body.IFrame;
+import com.sangupta.htmlgen.tags.body.Image;
 import com.sangupta.htmlgen.tags.body.Span;
 
 /**
@@ -65,27 +66,60 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		this.styles.clear();
 	}
 
+	/**
+	 * Clear all existing CSS classes and add the given one as the
+	 * only css class to this element.
+	 * 
+	 * @param clazz
+	 * @return
+	 */
 	public T cssClass(String clazz) {
 		this.cssClasses.clear();
 		this.cssClasses.add(clazz);
 		return clazzOfT.cast(this);
 	}
 	
+	/**
+	 * Add a CSS class to this element.
+	 * 
+	 * @param clazz
+	 * @return
+	 */
 	public T addClass(String clazz) {
 		this.cssClasses.add(clazz);
 		return clazzOfT.cast(this);
 	}
 	
+	/**
+	 * Remove a CSS class from this element.
+	 * 
+	 * @param clazz
+	 * @return
+	 */
 	public T removeClazz(String clazz) {
 		this.cssClasses.remove(clazz);
 		return clazzOfT.cast(this);
 	}
 	
+	/**
+	 * Add a new style param to this element
+	 * 
+	 * @param name
+	 * @param value
+	 * @return
+	 */
 	public T style(String name, String value) {
 		this.styles.add(new HtmlStyle(name, value));
 		return clazzOfT.cast(this);
 	}
 	
+	/**
+	 * Add a new style param to this element that has an integer value.
+	 * 
+	 * @param name
+	 * @param value
+	 * @return
+	 */
 	public T style(String name, int value) {
 		this.styles.add(new HtmlStyle(name, String.valueOf(value)));
 		return clazzOfT.cast(this);
@@ -121,7 +155,32 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		this.addChild(span);
 		return span;
 	}
+	
+	public Image image(String src) {
+		Image image = new Image(src);
+		image.parent(this);
+		
+		this.addChild(image);
+		return image;
+	}
 
+	public Image image(String src, int width, int height) {
+		Image image = new Image(src);
+		image.width(width);
+		image.height(height);
+		image.parent(this);
+		
+		this.addChild(image);
+		return image;
+	}
+
+	public Image image(Image image) {
+		image.parent(this);
+		this.addChild(image);
+		
+		return image;
+	}
+	
 	@Override
 	protected void outCustomAttributes(StringBuilder builder) {
 		if(!this.cssClasses.isEmpty()) {

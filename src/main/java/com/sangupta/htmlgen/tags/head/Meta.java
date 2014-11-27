@@ -36,21 +36,21 @@ public class Meta extends HtmlElement<Meta> {
 
 	public Meta(String name) {
 		this();
-		this.attribute("name", name);
+		this.attr("name", name);
 	}
 	
 	public Meta(String name, String content) {
 		this(name);
-		this.attribute("content", content);
+		this.attr("content", content);
 	}
 
 	public Meta itemprop(String itemprop) {
-		this.attribute("itemprop", itemprop);
+		this.attr("itemprop", itemprop);
 		return this;
 	}
 	
 	public Meta property(String property) {
-		this.attribute("property", property);
+		this.attr("property", property);
 		return this;
 	}
 	

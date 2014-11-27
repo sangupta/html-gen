@@ -41,22 +41,22 @@ public class IFrame extends HtmlBodyElement<IFrame> {
 	}
 
 	public IFrame src(String src) {
-		this.attribute("src", src);
+		this.attr("src", src);
 		return this;
 	}
 	
 	public IFrame width(int width) {
-		this.attribute("width", String.valueOf(width));
+		this.attr("width", String.valueOf(width));
 		return this;
 	}
 	
 	public IFrame height(int height) {
-		this.attribute("height", String.valueOf(height));
+		this.attr("height", String.valueOf(height));
 		return this;
 	}
 	
 	public IFrame type(String type) {
-		this.attribute("type", type);
+		this.attr("type", type);
 		return this;
 	}
 	

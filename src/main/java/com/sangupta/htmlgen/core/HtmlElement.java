@@ -26,7 +26,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.sangupta.htmlgen.HtmlBody;
 import com.sangupta.htmlgen.tags.Text;
+import com.sangupta.htmlgen.tags.body.Div;
+import com.sangupta.htmlgen.tags.body.Span;
 
 /**
  * 
@@ -69,16 +72,55 @@ public class HtmlElement<T> implements HtmlNode {
 		} while(true);
 	}
 	
+	/**
+	 * Return the nearest <code>BODY</code> element in the ancestor hierarchy.
+	 * 
+	 * @return
+	 */
+	public HtmlBody parentBody() {
+		return parent(HtmlBody.class);
+	}
+	
+	/**
+	 * Return the nearest <code>DIV</code> element in the ancestor hierarchy.
+	 * 
+	 * @return
+	 */
+	public Div parentDiv() {
+		return parent(Div.class);
+	}
+	
+	/**
+	 * Return the nearest <code>SPAN</code> element in the ancestor hierarchy.
+	 * 
+	 * @return
+	 */
+	public Span parentSpan() {
+		return parent(Span.class);
+	}
+	
 	public T parent(HtmlNode parent) {
 		this.parent = parent;
 		return clazzOfT.cast(this);
 	}
 
+	/**
+	 * Add the given attribute to the element.
+	 * 
+	 * @param attribute
+	 */
 	public void addAttribute(HtmlAttribute attribute) {
 		this.attributes.add(attribute);
 	}
 	
-	public T attribute(String name, String value) {
+	/**
+	 * Add an attribute by the given name and value to the element.
+	 * 
+	 * @param name
+	 * @param value
+	 * @return
+	 */
+	public T attr(String name, String value) {
 		this.attributes.add(new HtmlAttribute(name, value));
 		return clazzOfT.cast(this);
 	}

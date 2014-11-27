@@ -40,7 +40,7 @@ public class Script extends HtmlElement<Script> {
 	}
 	
 	public Script src(String src) {
-		this.attribute("src", src);
+		this.attr("src", src);
 		return this;
 	}
 	
