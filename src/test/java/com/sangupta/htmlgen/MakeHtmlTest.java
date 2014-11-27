@@ -45,6 +45,8 @@ public class MakeHtmlTest {
 		Div div = body.div().addClass("topbar").div().addClass("child node").text("hello world");
 		div.span("in bold").parent(Div.class).text("after span").parent(HtmlBody.class).iframe("sangupta");
 		
+		body.h1("h1").h2("h2").h3("h3").h4("h4").h5("h5").h6("h6");
+		
 		System.out.println(html.asString());
 	}
 

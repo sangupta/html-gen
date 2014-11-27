@@ -25,6 +25,12 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 import com.sangupta.htmlgen.tags.body.Div;
+import com.sangupta.htmlgen.tags.body.H1;
+import com.sangupta.htmlgen.tags.body.H2;
+import com.sangupta.htmlgen.tags.body.H3;
+import com.sangupta.htmlgen.tags.body.H4;
+import com.sangupta.htmlgen.tags.body.H5;
+import com.sangupta.htmlgen.tags.body.H6;
 import com.sangupta.htmlgen.tags.body.IFrame;
 import com.sangupta.htmlgen.tags.body.Image;
 import com.sangupta.htmlgen.tags.body.Span;
@@ -183,6 +189,276 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		iframe.parent(this);
 		this.addChild(iframe);
 		return iframe;
+	}
+	
+	/**
+	 * Add a new <code>H1</code> heading to the element with 
+	 * given text.
+	 * 
+	 * @param text
+	 * @return
+	 */
+	public T h1(String text) {
+		H1 h1 = new H1(text);
+		h1.parent(this);
+		
+		this.addChild(h1);
+		return clazzOfT.cast(this);
+	}
+	
+	/**
+	 * Add a new <code>H1</code> heading to the element with
+	 * given text and CSS class
+	 * 
+	 * @param text
+	 * @param cssClass
+	 * @return
+	 */
+	public T h1(String text, String cssClass) {
+		H1 h1 = new H1(text);
+		h1.parent(this);
+		h1.addClass(cssClass);
+		
+		this.addChild(h1);
+		return clazzOfT.cast(this);
+	}
+	
+	/**
+	 * Add the given <code>H1</code> heading to the element.
+	 * 
+	 * @param h1
+	 * @return
+	 */
+	public T h1(H1 h1) {
+		h1.parent(this);
+		
+		this.addChild(h1);
+		return clazzOfT.cast(this);
+	}
+	
+	/**
+	 * Add a new <code>H2</code> heading to the element with 
+	 * given text.
+	 * 
+	 * @param text
+	 * @return
+	 */
+	public T h2(String text) {
+		H2 h2 = new H2(text);
+		h2.parent(this);
+		
+		this.addChild(h2);
+		return clazzOfT.cast(this);
+	}
+	
+	/**
+	 * Add a new <code>H2</code> heading to the element with
+	 * given text and CSS class
+	 * 
+	 * @param text
+	 * @param cssClass
+	 * @return
+	 */
+	public T h2(String text, String cssClass) {
+		H2 h2 = new H2(text);
+		h2.parent(this);
+		h2.addClass(cssClass);
+		
+		this.addChild(h2);
+		return clazzOfT.cast(this);
+	}
+	
+	/**
+	 * Add the given <code>H2</code> heading to the element.
+	 * 
+	 * @param h2
+	 * @return
+	 */
+	public T h2(H2 h2) {
+		h2.parent(this);
+		
+		this.addChild(h2);
+		return clazzOfT.cast(this);
+	}
+	
+	/**
+	 * Add a new <code>H3</code> heading to the element with 
+	 * given text.
+	 * 
+	 * @param text
+	 * @return
+	 */
+	public T h3(String text) {
+		H3 h3 = new H3(text);
+		h3.parent(this);
+		
+		this.addChild(h3);
+		return clazzOfT.cast(this);
+	}
+	
+	/**
+	 * Add a new <code>H3</code> heading to the element with
+	 * given text and CSS class
+	 * 
+	 * @param text
+	 * @param cssClass
+	 * @return
+	 */
+	public T h3(String text, String cssClass) {
+		H3 h3 = new H3(text);
+		h3.parent(this);
+		h3.addClass(cssClass);
+		
+		this.addChild(h3);
+		return clazzOfT.cast(this);
+	}
+	
+	/**
+	 * Add the given <code>H3</code> heading to the element.
+	 * 
+	 * @param h3
+	 * @return
+	 */
+	public T h3(H3 h3) {
+		h3.parent(this);
+		
+		this.addChild(h3);
+		return clazzOfT.cast(this);
+	}
+	
+	/**
+	 * Add a new <code>H4</code> heading to the element with 
+	 * given text.
+	 * 
+	 * @param text
+	 * @return
+	 */
+	public T h4(String text) {
+		H4 h4 = new H4(text);
+		h4.parent(this);
+		
+		this.addChild(h4);
+		return clazzOfT.cast(this);
+	}
+	
+	/**
+	 * Add a new <code>H4</code> heading to the element with
+	 * given text and CSS class
+	 * 
+	 * @param text
+	 * @param cssClass
+	 * @return
+	 */
+	public T h4(String text, String cssClass) {
+		H4 h4 = new H4(text);
+		h4.parent(this);
+		h4.addClass(cssClass);
+		
+		this.addChild(h4);
+		return clazzOfT.cast(this);
+	}
+	
+	/**
+	 * Add the given <code>H4</code> heading to the element.
+	 * 
+	 * @param h4
+	 * @return
+	 */
+	public T h4(H4 h4) {
+		h4.parent(this);
+		
+		this.addChild(h4);
+		return clazzOfT.cast(this);
+	}
+	
+	/**
+	 * Add a new <code>H5</code> heading to the element with 
+	 * given text.
+	 * 
+	 * @param text
+	 * @return
+	 */
+	public T h5(String text) {
+		H5 h5 = new H5(text);
+		h5.parent(this);
+		
+		this.addChild(h5);
+		return clazzOfT.cast(this);
+	}
+	
+	/**
+	 * Add a new <code>H5</code> heading to the element with
+	 * given text and CSS class
+	 * 
+	 * @param text
+	 * @param cssClass
+	 * @return
+	 */
+	public T h5(String text, String cssClass) {
+		H5 h5 = new H5(text);
+		h5.parent(this);
+		h5.addClass(cssClass);
+		
+		this.addChild(h5);
+		return clazzOfT.cast(this);
+	}
+	
+	/**
+	 * Add the given <code>H5</code> heading to the element.
+	 * 
+	 * @param h5
+	 * @return
+	 */
+	public T h5(H5 h5) {
+		h5.parent(this);
+		
+		this.addChild(h5);
+		return clazzOfT.cast(this);
+	}
+	
+	/**
+	 * Add a new <code>H6</code> heading to the element with 
+	 * given text.
+	 * 
+	 * @param text
+	 * @return
+	 */
+	public T h6(String text) {
+		H6 h6 = new H6(text);
+		h6.parent(this);
+		
+		this.addChild(h6);
+		return clazzOfT.cast(this);
+	}
+	
+	/**
+	 * Add a new <code>H6</code> heading to the element with
+	 * given text and CSS class
+	 * 
+	 * @param text
+	 * @param cssClass
+	 * @return
+	 */
+	public T h6(String text, String cssClass) {
+		H6 h6 = new H6(text);
+		h6.parent(this);
+		h6.addClass(cssClass);
+		
+		this.addChild(h6);
+		return clazzOfT.cast(this);
+	}
+	
+	/**
+	 * Add the given <code>H6</code> heading to the element.
+	 * 
+	 * @param h5
+	 * @return
+	 */
+	public T h6(H6 h6) {
+		h6.parent(this);
+		
+		this.addChild(h6);
+		return clazzOfT.cast(this);
 	}
 	
 	/**
