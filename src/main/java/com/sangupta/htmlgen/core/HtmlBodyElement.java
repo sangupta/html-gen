@@ -36,16 +36,38 @@ import com.sangupta.htmlgen.tags.body.Span;
  */
 public class HtmlBodyElement<T> extends HtmlElement<T> {
 	
+	/**
+	 * The list of CSS classes associated with this element
+	 * 
+	 */
 	protected final Set<String> cssClasses = new LinkedHashSet<String>();
 	
+	/**
+	 * The list of HTML style attributes associated with this element
+	 * 
+	 */
 	protected final Set<HtmlStyle> styles = new LinkedHashSet<HtmlStyle>(); 
 	
+	/**
+	 * Whether this element supports children or not
+	 * 
+	 */
 	protected boolean supportsChildren = true;
 	
+	/**
+	 * Construct a new instance for the given element name
+	 * 
+	 * @param name
+	 * @param clazzOfT
+	 */
 	public HtmlBodyElement(String name, Class<T> clazzOfT) {
 		super(name, clazzOfT);
 	}
 	
+	/**
+	 * Add the given child to the list of children of this element
+	 * 
+	 */
 	@Override
 	protected T addChild(HtmlElement<?> child) {
 		if(!this.supportsChildren) {
@@ -125,6 +147,11 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		return clazzOfT.cast(this);
 	}
 	
+	/**
+	 * Add an empty <code>DIV</code> to the element
+	 * 
+	 * @return
+	 */
 	public Div div() {
 		Div div = new Div();
 		div.parent(this);
@@ -133,6 +160,12 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		return div;
 	}
 
+	/**
+	 * Add an <code>IFRAME</code> with the given URL to the element
+	 * 
+	 * @param src
+	 * @return
+	 */
 	public IFrame iframe(String src) {
 		IFrame iframe = new IFrame(src);
 		iframe.parent(this);
@@ -140,6 +173,23 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		return iframe;
 	}
 	
+	/**
+	 * Add the given <code>IFRAME</code> to the element
+	 * 
+	 * @param iframe
+	 * @return
+	 */
+	public IFrame iframe(IFrame iframe) {
+		iframe.parent(this);
+		this.addChild(iframe);
+		return iframe;
+	}
+	
+	/**
+	 * Add an empty <code>SPAN</code> to the element
+	 * 
+	 * @return
+	 */
 	public Span span() {
 		Span span = new Span();
 		span.parent(this);
@@ -148,6 +198,12 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		return span;
 	}
 	
+	/**
+	 * Add a span with the given text to the element
+	 * 
+	 * @param text
+	 * @return
+	 */
 	public Span span(String text) {
 		Span span = new Span(text);
 		span.parent(this);
@@ -156,6 +212,12 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		return span;
 	}
 	
+	/**
+	 * Add the image with given URL to the element
+	 * 
+	 * @param src
+	 * @return
+	 */
 	public Image image(String src) {
 		Image image = new Image(src);
 		image.parent(this);
@@ -164,6 +226,14 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		return image;
 	}
 
+	/**
+	 * Add the image with given URL and dimensions to the element
+	 * 
+	 * @param src
+	 * @param width
+	 * @param height
+	 * @return
+	 */
 	public Image image(String src, int width, int height) {
 		Image image = new Image(src);
 		image.width(width);
@@ -174,6 +244,12 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		return image;
 	}
 
+	/**
+	 * Add the given image to the element
+	 * 
+	 * @param image
+	 * @return
+	 */
 	public Image image(Image image) {
 		image.parent(this);
 		this.addChild(image);
@@ -181,6 +257,10 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		return image;
 	}
 	
+	/**
+	 * Output custom attributes, if any, for this element
+	 * 
+	 */
 	@Override
 	protected void outCustomAttributes(StringBuilder builder) {
 		if(!this.cssClasses.isEmpty()) {
