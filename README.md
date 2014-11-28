@@ -40,7 +40,13 @@ This will generate the HTML output as
 
 ```java
 Html html = new Html();
-html.body().table().thead().tr().th("head1").th("head2").th("head3").parentTable().tbody().tr().td("1").td("2").td("3").newRow().td("a").td("b").td("c");
+html.body().table()
+			.thead()
+				.tr().th("head1").th("head2").th("head3")
+			.parentTable().tbody()
+				.tr().td("1").td("2").td("3")
+				.newRow().td("a").td("b").td("c");
+				
 System.out.println(html.asString());
 ```
 generating HTML code as:
