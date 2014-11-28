@@ -36,6 +36,62 @@ This will generate the HTML output as
 ```html
 ```
 
+### Generating a table
+
+```java
+Html html = new Html();
+html.body().table().thead().tr().th("head1").th("head2").th("head3").parentTable().tbody().tr().td("1").td("2").td("3").newRow().td("a").td("b").td("c");
+System.out.println(html.asString());
+```
+generating HTML code as:
+```html
+<html>
+  <head>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            head1
+          </th>
+          <th>
+            head2
+          </th>
+          <th>
+            head3
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            1
+          </td>
+          <td>
+            2
+          </td>
+          <td>
+            3
+          </td>
+        </tr>
+        <tr>
+          <td>
+            a
+          </td>
+          <td>
+            b
+          </td>
+          <td>
+            c
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
+```
+
 Changelog
 ---------
 
