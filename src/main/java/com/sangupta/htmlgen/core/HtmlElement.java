@@ -54,6 +54,11 @@ public class HtmlElement<T> implements HtmlNode {
 	 */
 	protected boolean supportsChildren = true;
 	
+	/**
+	 * Indicates if the end of tag should be written back or not.
+	 */
+	protected boolean outputEndOfTag = true;
+	
 	public HtmlElement(String name, Class<T> clazzOfT) {
 		this.name = name.toLowerCase();
 		this.clazzOfT = clazzOfT;
@@ -245,10 +250,12 @@ public class HtmlElement<T> implements HtmlNode {
 		}
 		
 		// close up
-		indent(builder, indentLevel);
-		builder.append("</");
-		builder.append(this.name);
-		builder.append('>');
+		if(this.outputEndOfTag) {
+			indent(builder, indentLevel);
+			builder.append("</");
+			builder.append(this.name);
+			builder.append('>');
+		}
 	}
 	
 	protected void outCustomAttributes(StringBuilder builder) {

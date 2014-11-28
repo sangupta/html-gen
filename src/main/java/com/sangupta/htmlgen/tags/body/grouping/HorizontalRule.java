@@ -33,6 +33,7 @@ public class HorizontalRule extends HtmlBodyElement<HorizontalRule> {
 	public HorizontalRule() {
 		super("hr", HorizontalRule.class);
 		this.supportsChildren = false;
+		this.outputEndOfTag = false;
 	}
 	
 	public HorizontalRule(String cssClass) {
