@@ -24,6 +24,8 @@ package com.sangupta.htmlgen.core;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import com.sangupta.htmlgen.tags.body.edits.DeletedText;
+import com.sangupta.htmlgen.tags.body.edits.InsertedText;
 import com.sangupta.htmlgen.tags.body.embed.Details;
 import com.sangupta.htmlgen.tags.body.embed.IFrame;
 import com.sangupta.htmlgen.tags.body.embed.Image;
@@ -188,8 +190,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public Div div(Div div) {
-		div.parent(this);
-		
 		this.addChild(div);
 		return div;
 	}
@@ -211,7 +211,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public IFrame iframe(IFrame iframe) {
-		iframe.parent(this);
 		this.addChild(iframe);
 		return iframe;
 	}
@@ -249,8 +248,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public T h1(H1 h1) {
-		h1.parent(this);
-		
 		return this.addChild(h1);
 	}
 	
@@ -287,8 +284,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public T h2(H2 h2) {
-		h2.parent(this);
-		
 		return this.addChild(h2);
 	}
 	
@@ -325,8 +320,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public T h3(H3 h3) {
-		h3.parent(this);
-		
 		return this.addChild(h3);
 	}
 	
@@ -363,8 +356,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public T h4(H4 h4) {
-		h4.parent(this);
-		
 		return this.addChild(h4);
 	}
 	
@@ -401,10 +392,7 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public T h5(H5 h5) {
-		h5.parent(this);
-		
-		this.addChild(h5);
-		return clazzOfT.cast(this);
+		return this.addChild(h5);
 	}
 	
 	/**
@@ -440,8 +428,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public T h6(H6 h6) {
-		h6.parent(this);
-		
 		return this.addChild(h6);
 	}
 	
@@ -472,8 +458,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public Span span(Span span) {
-		span.parent(this);
-		
 		this.addChild(span);
 		return span;
 	}
@@ -511,7 +495,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public Image image(Image image) {
-		image.parent(this);
 		this.addChild(image);
 		
 		return image;
@@ -545,8 +528,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public T anchor(Anchor anchor) {
-		anchor.parent(this);
-		
 		return this.addChild(anchor);
 	}
 	
@@ -559,8 +540,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public UnorderedList ul(UnorderedList ul) {
-		ul.parent(this);
-		
 		this.addChild(ul);
 		return ul;
 	}
@@ -574,8 +553,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public OrderedList ol(OrderedList ol) {
-		ol.parent(this);
-		
 		this.addChild(ol);
 		return ol;
 	}
@@ -589,8 +566,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public T li(ListItem li) {
-		li.parent(this);
-		
 		return this.addChild(li);
 	}
 	
@@ -607,8 +582,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public Form form(Form form) {
-		form.parent(this);
-		
 		this.addChild(form);
 		return form;
 	}
@@ -626,8 +599,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public Header header(Header header) {
-		header.parent(this);
-		
 		this.addChild(header);
 		return header;
 	}
@@ -637,8 +608,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public Address address(Address address) {
-		address.parent(this);
-		
 		this.addChild(address);
 		return address;
 	}
@@ -652,8 +621,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public Article article(Article article) {
-		article.parent(this);
-		
 		this.addChild(article);
 		return article;
 	}
@@ -671,8 +638,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public Footer footer(Footer footer) {
-		footer.parent(this);
-		
 		this.addChild(footer);
 		return footer;
 	}
@@ -686,8 +651,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	} 
 	
 	public Nav nav(Nav nav) {
-		nav.parent(this);
-		
 		this.addChild(nav);
 		return nav;
 	}
@@ -701,8 +664,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public Section section(Section section) {
-		section.parent(this);
-		
 		this.addChild(section);
 		return section;
 	}
@@ -715,11 +676,9 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		return this.hgroup(new HGroup(cssClass));
 	}
 	
-	public HGroup hgroup(HGroup section) {
-		section.parent(this);
-		
-		this.addChild(section);
-		return section;
+	public HGroup hgroup(HGroup hgroup) {
+		this.addChild(hgroup);
+		return hgroup;
 	}
 	
 	public T hr() {
@@ -731,8 +690,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public T hr(HorizontalRule hr) {
-		hr.parent(this);
-		
 		return this.addChild(hr);
 	}
 	
@@ -757,8 +714,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public Figure figure(Figure figure) {
-		figure.parent(this);
-		
 		this.addChild(figure);
 		return figure;
 	}
@@ -776,8 +731,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public FigureCaption figureCaption(FigureCaption figureCaption) {
-		figureCaption.parent(this);
-		
 		this.addChild(figureCaption);
 		return figureCaption;
 	}
@@ -791,8 +744,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public Main main(Main main) {
-		main.parent(this);
-		
 		this.addChild(main);
 		return main;
 	}
@@ -810,8 +761,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public BlockQuote blockQuote(BlockQuote blockQuote) {
-		blockQuote.parent(this);
-		
 		this.addChild(blockQuote);
 		return blockQuote;
 	}
@@ -829,8 +778,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public InlineQuote inlineQuote(InlineQuote inlineQuote) {
-		inlineQuote.parent(this);
-		
 		this.addChild(inlineQuote);
 		return inlineQuote;
 	}
@@ -844,8 +791,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public Cite cite(Cite cite) {
-		cite.parent(this);
-		
 		this.addChild(cite);
 		return cite;
 	}
@@ -859,8 +804,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public Details details(Details details) {
-		details.parent(this);
-		
 		this.addChild(details);
 		return details;
 	}
@@ -874,8 +817,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public Table table(Table table) {
-		table.parent(this);
-		
 		this.addChild(table);
 		return table;
 	}
@@ -889,8 +830,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public THead thead(THead thead) {
-		thead.parent(this);
-		
 		this.addChild(thead);
 		return thead;
 	}
@@ -904,8 +843,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public TBody tbody(TBody tbody) {
-		tbody.parent(this);
-		
 		this.addChild(tbody);
 		return tbody;
 	}
@@ -919,8 +856,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public TableRow tr(TableRow row) {
-		row.parent(this);
-		
 		this.addChild(row);
 		return row;
 	}
@@ -938,8 +873,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public T td(TableDataCell cell) {
-		cell.parent(this);
-		
 		return this.addChild(cell);
 	}
 	
@@ -956,24 +889,23 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public T th(TableHeaderCell cell) {
-		cell.parent(this);
-		
 		return this.addChild(cell);
 	}
 	
-	public Emphasis em() {
+	public T em() {
 		return this.em(new Emphasis());
 	}
 	
-	public Emphasis em(String cssClass) {
-		return this.em(new Emphasis(cssClass));
+	public T em(String text) {
+		return this.em(new Emphasis(text));
 	}
 	
-	public Emphasis em(Emphasis em) {
-		em.parent(this);
-		
-		this.addChild(em);
-		return em;
+	public T em(String text, String cssClass) {
+		return this.em(new Emphasis(text, cssClass));
+	}
+	
+	public T em(Emphasis em) {
+		return this.addChild(em);
 	}
 	
 	public T abbr() {
@@ -989,8 +921,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public T abbr(Abbreviation abbr) {
-		abbr.parent(this);
-		
 		return this.addChild(abbr);
 	}
 	
@@ -1007,8 +937,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public T bold(Bold bold) {
-		bold.parent(this);
-		
 		return this.addChild(bold);
 	}
 	
@@ -1025,8 +953,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public T code(Code code) {
-		code.parent(this);
-		
 		return this.addChild(code);
 	}
 	
@@ -1042,10 +968,8 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		return this.italic(new Italic(text, cssClass));
 	}
 	
-	public T italic(Italic i) {
-		i.parent(this);
-		
-		return this.addChild(i);
+	public T italic(Italic italic) {
+		return this.addChild(italic);
 	}
 	
 	public T underline() {
@@ -1061,8 +985,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public T underline(Underline underline) {
-		underline.parent(this);
-		
 		return this.addChild(underline);
 	}
 	
@@ -1079,8 +1001,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public T small(Small small) {
-		small.parent(this);
-		
 		return this.addChild(small);
 	}
 	
@@ -1097,8 +1017,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public T strong(Strong strong) {
-		strong.parent(this);
-		
 		return this.addChild(strong);
 	}
 	
@@ -1115,8 +1033,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public T sub(Subscript sub) {
-		sub.parent(this);
-		
 		return this.addChild(sub);
 	}
 	
@@ -1133,9 +1049,39 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	}
 	
 	public T sup(Superscript sup) {
-		sup.parent(this);
-		
 		return this.addChild(sup);
+	}
+	
+	public T ins() {
+		return this.ins(new InsertedText());
+	}
+	
+	public T ins(String text) {
+		return this.ins(new InsertedText(text));
+	}
+	
+	public T ins(String text, String cssClass) {
+		return this.ins(new InsertedText(text, cssClass));
+	}
+	
+	public T ins(InsertedText ins) {
+		return this.addChild(ins);
+	}
+	
+	public T del() {
+		return this.del(new DeletedText());
+	}
+	
+	public T del(String text) {
+		return this.del(new DeletedText(text));
+	}
+	
+	public T del(String text, String cssClass) {
+		return this.del(new DeletedText(text, cssClass));
+	}
+	
+	public T del(DeletedText del) {
+		return this.addChild(del);
 	}
 	
 	/**

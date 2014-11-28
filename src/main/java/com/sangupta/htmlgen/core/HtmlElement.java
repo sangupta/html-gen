@@ -172,6 +172,7 @@ public class HtmlElement<T> implements HtmlNode {
 			return clazzOfT.cast(this);
 		}
 		
+		child.parent(this);
 		this.children.add(child);
 		return clazzOfT.cast(this);
 	}
