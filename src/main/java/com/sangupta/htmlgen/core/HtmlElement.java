@@ -42,7 +42,7 @@ public class HtmlElement<T> implements HtmlNode {
 	
 	protected final List<HtmlElement<?>> children = new ArrayList<HtmlElement<?>>();
 	
-	protected HtmlNode parent;
+	protected HtmlElement<?> parent;
 	
 	protected final String name;
 	
@@ -68,7 +68,7 @@ public class HtmlElement<T> implements HtmlNode {
 	 * Return the parent element of this element
 	 * 
 	 */
-	public HtmlNode parent() {
+	public HtmlElement<?> parent() {
 		return this.parent;
 	}
 
@@ -88,8 +88,8 @@ public class HtmlElement<T> implements HtmlNode {
 	 * @param clazz
 	 * @return
 	 */
-	public <X extends HtmlNode> X parent(Class<X> clazz) {
-		HtmlNode parent = this.parent;
+	public <X extends HtmlElement<?>> X parent(Class<X> clazz) {
+		HtmlElement<?> parent = this.parent;
 		do {
 			if(parent == null) {
 				return null;
@@ -136,7 +136,7 @@ public class HtmlElement<T> implements HtmlNode {
 	 * @param parent
 	 * @return
 	 */
-	public T parent(HtmlNode parent) {
+	public T parent(HtmlElement<?> parent) {
 		this.parent = parent;
 		return clazzOfT.cast(this);
 	}

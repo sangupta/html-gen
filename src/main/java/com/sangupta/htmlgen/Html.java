@@ -51,11 +51,9 @@ public class Html implements HtmlNode {
 	 * 
 	 */
 	public Html() {
-		this.head = new HtmlHead();
-		this.head.parent(this);
+		this.head = new HtmlHead(this);
 		
-		this.body = new HtmlBody();
-		this.body.parent(this);
+		this.body = new HtmlBody(this);
 	}
 	
 	/**

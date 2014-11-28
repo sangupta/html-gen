@@ -28,11 +28,11 @@ package com.sangupta.htmlgen.core;
  */
 public interface HtmlNode {
 	
-	/**
-	 * Return the parent node for this HTML node
-	 * 
-	 * @return
-	 */
-	public HtmlNode parent();
+//	/**
+//	 * Return the parent node for this HTML node
+//	 * 
+//	 * @return
+//	 */
+//	public HtmlNode parent();
 
 }

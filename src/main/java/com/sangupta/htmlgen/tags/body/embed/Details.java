@@ -19,7 +19,7 @@
  * 
  */
 
-package com.sangupta.htmlgen;
+package com.sangupta.htmlgen.tags.body.embed;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
 
@@ -28,17 +28,15 @@ import com.sangupta.htmlgen.core.HtmlBodyElement;
  * @author sangupta
  *
  */
-public class HtmlBody extends HtmlBodyElement<HtmlBody> {
-	
-	protected final Html parentHtml;
+public class Details extends HtmlBodyElement<Details> {
 
-	public HtmlBody(Html html) {
-		super("body", HtmlBody.class);
-		this.parentHtml = html;
+	public Details() {
+		super("details", Details.class);
 	}
 
-	public Html html() {
-		return this.parentHtml;
+	public Details(String cssClass) {
+		this();
+		this.addCssClass(cssClass);
 	}
 	
 }

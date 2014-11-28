@@ -24,6 +24,7 @@ package com.sangupta.htmlgen.core;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import com.sangupta.htmlgen.tags.body.embed.Details;
 import com.sangupta.htmlgen.tags.body.embed.IFrame;
 import com.sangupta.htmlgen.tags.body.embed.Image;
 import com.sangupta.htmlgen.tags.body.forms.Form;
@@ -49,6 +50,12 @@ import com.sangupta.htmlgen.tags.body.sections.Header;
 import com.sangupta.htmlgen.tags.body.sections.Main;
 import com.sangupta.htmlgen.tags.body.sections.Nav;
 import com.sangupta.htmlgen.tags.body.sections.Section;
+import com.sangupta.htmlgen.tags.body.table.TBody;
+import com.sangupta.htmlgen.tags.body.table.THead;
+import com.sangupta.htmlgen.tags.body.table.Table;
+import com.sangupta.htmlgen.tags.body.table.TableDataCell;
+import com.sangupta.htmlgen.tags.body.table.TableHeaderCell;
+import com.sangupta.htmlgen.tags.body.table.TableRow;
 import com.sangupta.htmlgen.tags.body.text.Anchor;
 import com.sangupta.htmlgen.tags.body.text.Cite;
 import com.sangupta.htmlgen.tags.body.text.InlineQuote;
@@ -831,6 +838,117 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		
 		this.addChild(cite);
 		return cite;
+	}
+	
+	public Details details() {
+		return this.details(new Details());
+	}
+	
+	public Details details(String cssClass) {
+		return this.details(new Details(cssClass));
+	}
+	
+	public Details details(Details details) {
+		details.parent(this);
+		
+		this.addChild(details);
+		return details;
+	}
+	
+	public Table table() {
+		return this.table(new Table());
+	}
+	
+	public Table table(String cssClass) {
+		return this.table(new Table(cssClass));
+	}
+	
+	public Table table(Table table) {
+		table.parent(this);
+		
+		this.addChild(table);
+		return table;
+	}
+	
+	public THead thead() {
+		return this.thead(new THead());
+	}
+	
+	public THead thead(String cssClass) {
+		return this.thead(new THead(cssClass));
+	}
+	
+	public THead thead(THead thead) {
+		thead.parent(this);
+		
+		this.addChild(thead);
+		return thead;
+	}
+	
+	public TBody tbody() {
+		return this.tbody(new TBody());
+	}
+	
+	public TBody tbody(String cssClass) {
+		return this.tbody(new TBody(cssClass));
+	}
+	
+	public TBody tbody(TBody tbody) {
+		tbody.parent(this);
+		
+		this.addChild(tbody);
+		return tbody;
+	}
+	
+	public TableRow tr() {
+		return this.tr(new TableRow());
+	}
+	
+	public TableRow tr(String cssClass) {
+		return this.tr(new TableRow(cssClass));
+	}
+	
+	public TableRow tr(TableRow row) {
+		row.parent(this);
+		
+		this.addChild(row);
+		return row;
+	}
+	
+	public T td() {
+		return this.td(new TableDataCell());
+	}
+	
+	public T td(String text) {
+		return this.td(new TableDataCell(text));
+	}
+	
+	public T td(String text, String cssClass) {
+		return this.td(new TableDataCell(text, cssClass));
+	}
+	
+	public T td(TableDataCell cell) {
+		cell.parent(this);
+		
+		return this.addChild(cell);
+	}
+	
+	public T th() {
+		return this.th(new TableHeaderCell());
+	}
+	
+	public T th(String text) {
+		return this.th(new TableHeaderCell(text));
+	}
+	
+	public T th(String text, String cssClass) {
+		return this.th(new TableHeaderCell(text, cssClass));
+	}
+	
+	public T th(TableHeaderCell cell) {
+		cell.parent(this);
+		
+		return this.addChild(cell);
 	}
 	
 	/**

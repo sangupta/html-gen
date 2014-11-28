@@ -33,9 +33,12 @@ import com.sangupta.htmlgen.tags.head.Title;
  *
  */
 public class HtmlHead extends HtmlElement<HtmlHead> {
+	
+	protected final Html parentHtml;
 
-	public HtmlHead() {
+	public HtmlHead(Html html) {
 		super("head", HtmlHead.class);
+		this.parentHtml = html;
 	}
 	
 	public HtmlHead title(String title) {
@@ -77,6 +80,10 @@ public class HtmlHead extends HtmlElement<HtmlHead> {
 	public HtmlHead script(Script script) {
 		this.addChild(script);
 		return this;
+	}
+	
+	public Html html() {
+		return this.parentHtml;
 	}
 	
 }
