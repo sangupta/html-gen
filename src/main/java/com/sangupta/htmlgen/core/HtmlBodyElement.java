@@ -24,6 +24,7 @@ package com.sangupta.htmlgen.core;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import com.sangupta.htmlgen.tags.Pre;
 import com.sangupta.htmlgen.tags.body.edits.DeletedText;
 import com.sangupta.htmlgen.tags.body.edits.InsertedText;
 import com.sangupta.htmlgen.tags.body.embed.Details;
@@ -990,6 +991,23 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	public Map map(Map map) {
 		this.addChild(map);
 		return map;
+	}
+	
+	public Pre pre() {
+		return this.pre(new Pre());
+	}
+	
+	public Pre pre(String text) {
+		return this.pre(new Pre(text));
+	}
+	
+	public Pre pre(String text, String cssClass) {
+		return this.pre(new Pre(text, cssClass));
+	}
+	
+	public Pre pre(Pre pre) {
+		this.addChild(pre);
+		return pre;
 	}
 	
 	/**
