@@ -13,4 +13,30 @@ public class Table extends HtmlBodyElement<Table> {
 		this.addCssClass(cssClass);
 	}
 	
+	public THead thead() {
+		return this.thead(new THead());
+	}
+	
+	public THead thead(String cssClass) {
+		return this.thead(new THead(cssClass));
+	}
+	
+	public THead thead(THead thead) {
+		this.addChild(thead);
+		return thead;
+	}
+	
+	public TBody tbody() {
+		return this.tbody(new TBody());
+	}
+	
+	public TBody tbody(String cssClass) {
+		return this.tbody(new TBody(cssClass));
+	}
+	
+	public TBody tbody(TBody tbody) {
+		this.addChild(tbody);
+		return tbody;
+	}
+	
 }

@@ -39,4 +39,16 @@ public class UnorderedList extends HtmlBodyElement<UnorderedList> {
 		this.addCssClass(cssClass);
 	}
 	
+	public UnorderedList li(String text) {
+		return this.li(new ListItem(text));
+	}
+	
+	public UnorderedList li(String text, String cssClass) {
+		return this.li(new ListItem(text, cssClass));
+	}
+	
+	public UnorderedList li(ListItem li) {
+		return this.addChild(li);
+	}
+	
 }

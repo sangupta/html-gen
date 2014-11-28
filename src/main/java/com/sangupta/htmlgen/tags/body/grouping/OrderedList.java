@@ -39,4 +39,16 @@ public class OrderedList extends HtmlBodyElement<OrderedList> {
 		this.addCssClass(cssClass);
 	}
 	
+	public OrderedList li(String text) {
+		return this.li(new ListItem(text));
+	}
+	
+	public OrderedList li(String text, String cssClass) {
+		return this.li(new ListItem(text, cssClass));
+	}
+	
+	public OrderedList li(ListItem li) {
+		return this.addChild(li);
+	}
+	
 }

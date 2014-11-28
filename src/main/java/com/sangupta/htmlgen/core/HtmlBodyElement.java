@@ -29,6 +29,7 @@ import com.sangupta.htmlgen.tags.body.edits.InsertedText;
 import com.sangupta.htmlgen.tags.body.embed.Details;
 import com.sangupta.htmlgen.tags.body.embed.IFrame;
 import com.sangupta.htmlgen.tags.body.embed.Image;
+import com.sangupta.htmlgen.tags.body.embed.Map;
 import com.sangupta.htmlgen.tags.body.forms.Form;
 import com.sangupta.htmlgen.tags.body.grouping.BlockQuote;
 import com.sangupta.htmlgen.tags.body.grouping.Div;
@@ -36,7 +37,6 @@ import com.sangupta.htmlgen.tags.body.grouping.Figure;
 import com.sangupta.htmlgen.tags.body.grouping.FigureCaption;
 import com.sangupta.htmlgen.tags.body.grouping.HGroup;
 import com.sangupta.htmlgen.tags.body.grouping.HorizontalRule;
-import com.sangupta.htmlgen.tags.body.grouping.ListItem;
 import com.sangupta.htmlgen.tags.body.grouping.OrderedList;
 import com.sangupta.htmlgen.tags.body.grouping.UnorderedList;
 import com.sangupta.htmlgen.tags.body.sections.Address;
@@ -52,12 +52,7 @@ import com.sangupta.htmlgen.tags.body.sections.Header;
 import com.sangupta.htmlgen.tags.body.sections.Main;
 import com.sangupta.htmlgen.tags.body.sections.Nav;
 import com.sangupta.htmlgen.tags.body.sections.Section;
-import com.sangupta.htmlgen.tags.body.table.TBody;
-import com.sangupta.htmlgen.tags.body.table.THead;
 import com.sangupta.htmlgen.tags.body.table.Table;
-import com.sangupta.htmlgen.tags.body.table.TableDataCell;
-import com.sangupta.htmlgen.tags.body.table.TableHeaderCell;
-import com.sangupta.htmlgen.tags.body.table.TableRow;
 import com.sangupta.htmlgen.tags.body.text.Abbreviation;
 import com.sangupta.htmlgen.tags.body.text.Anchor;
 import com.sangupta.htmlgen.tags.body.text.Bold;
@@ -557,18 +552,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		return ol;
 	}
 	
-	public T li(String text) {
-		return this.li(new ListItem(text));
-	}
-	
-	public T li(String text, String cssClass) {
-		return this.li(new ListItem(text, cssClass));
-	}
-	
-	public T li(ListItem li) {
-		return this.addChild(li);
-	}
-	
 	public Form form() {
 		return this.form(new Form());
 	}
@@ -718,23 +701,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		return figure;
 	}
 	
-	public FigureCaption figureCaption() {
-		return this.figureCaption(new FigureCaption());
-	}
-	
-	public FigureCaption figureCaption(String text) {
-		return this.figureCaption(new FigureCaption(text));
-	}
-	
-	public FigureCaption figureCaption(String text, String cssClass) {
-		return this.figureCaption(new FigureCaption(text, cssClass));
-	}
-	
-	public FigureCaption figureCaption(FigureCaption figureCaption) {
-		this.addChild(figureCaption);
-		return figureCaption;
-	}
-	
 	public Main main() {
 		return this.main(new Main());
 	}
@@ -819,77 +785,6 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	public Table table(Table table) {
 		this.addChild(table);
 		return table;
-	}
-	
-	public THead thead() {
-		return this.thead(new THead());
-	}
-	
-	public THead thead(String cssClass) {
-		return this.thead(new THead(cssClass));
-	}
-	
-	public THead thead(THead thead) {
-		this.addChild(thead);
-		return thead;
-	}
-	
-	public TBody tbody() {
-		return this.tbody(new TBody());
-	}
-	
-	public TBody tbody(String cssClass) {
-		return this.tbody(new TBody(cssClass));
-	}
-	
-	public TBody tbody(TBody tbody) {
-		this.addChild(tbody);
-		return tbody;
-	}
-	
-	public TableRow tr() {
-		return this.tr(new TableRow());
-	}
-	
-	public TableRow tr(String cssClass) {
-		return this.tr(new TableRow(cssClass));
-	}
-	
-	public TableRow tr(TableRow row) {
-		this.addChild(row);
-		return row;
-	}
-	
-	public T td() {
-		return this.td(new TableDataCell());
-	}
-	
-	public T td(String text) {
-		return this.td(new TableDataCell(text));
-	}
-	
-	public T td(String text, String cssClass) {
-		return this.td(new TableDataCell(text, cssClass));
-	}
-	
-	public T td(TableDataCell cell) {
-		return this.addChild(cell);
-	}
-	
-	public T th() {
-		return this.th(new TableHeaderCell());
-	}
-	
-	public T th(String text) {
-		return this.th(new TableHeaderCell(text));
-	}
-	
-	public T th(String text, String cssClass) {
-		return this.th(new TableHeaderCell(text, cssClass));
-	}
-	
-	public T th(TableHeaderCell cell) {
-		return this.addChild(cell);
 	}
 	
 	public T em() {
@@ -1082,6 +977,19 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	
 	public T del(DeletedText del) {
 		return this.addChild(del);
+	}
+	
+	public Map map() {
+		return this.map(new Map());
+	}
+	
+	public Map map(String name) {
+		return this.map(new Map(name));
+	}
+	
+	public Map map(Map map) {
+		this.addChild(map);
+		return map;
 	}
 	
 	/**

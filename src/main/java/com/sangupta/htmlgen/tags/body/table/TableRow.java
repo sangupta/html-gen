@@ -26,7 +26,7 @@ public class TableRow extends HtmlBodyElement<TableRow> {
 		
 		Table table = this.parent(Table.class);
 		if(table != null) {
-			return table.tr();
+			return table.tbody().tr();
 		}
 		
 		throw new IllegalStateException("Table row added where no table can be found in ancestors");
@@ -34,6 +34,38 @@ public class TableRow extends HtmlBodyElement<TableRow> {
 	
 	public Table parentTable() {
 		return this.parent(Table.class);
+	}
+	
+	public TableRow td() {
+		return this.td(new TableDataCell());
+	}
+	
+	public TableRow td(String text) {
+		return this.td(new TableDataCell(text));
+	}
+	
+	public TableRow td(String text, String cssClass) {
+		return this.td(new TableDataCell(text, cssClass));
+	}
+	
+	public TableRow td(TableDataCell cell) {
+		return this.addChild(cell);
+	}
+	
+	public TableRow th() {
+		return this.th(new TableHeaderCell());
+	}
+	
+	public TableRow th(String text) {
+		return this.th(new TableHeaderCell(text));
+	}
+	
+	public TableRow th(String text, String cssClass) {
+		return this.th(new TableHeaderCell(text, cssClass));
+	}
+	
+	public TableRow th(TableHeaderCell cell) {
+		return this.addChild(cell);
 	}
 	
 }

@@ -56,4 +56,21 @@ public class Figure extends HtmlBodyElement<Figure> {
 		this.addChild(caption);
 	}
 	
+	public FigureCaption figureCaption() {
+		return this.figureCaption(new FigureCaption());
+	}
+	
+	public FigureCaption figureCaption(String text) {
+		return this.figureCaption(new FigureCaption(text));
+	}
+	
+	public FigureCaption figureCaption(String text, String cssClass) {
+		return this.figureCaption(new FigureCaption(text, cssClass));
+	}
+	
+	public FigureCaption figureCaption(FigureCaption figureCaption) {
+		this.addChild(figureCaption);
+		return figureCaption;
+	}
+	
 }
