@@ -56,10 +56,20 @@ import com.sangupta.htmlgen.tags.body.table.Table;
 import com.sangupta.htmlgen.tags.body.table.TableDataCell;
 import com.sangupta.htmlgen.tags.body.table.TableHeaderCell;
 import com.sangupta.htmlgen.tags.body.table.TableRow;
+import com.sangupta.htmlgen.tags.body.text.Abbreviation;
 import com.sangupta.htmlgen.tags.body.text.Anchor;
+import com.sangupta.htmlgen.tags.body.text.Bold;
 import com.sangupta.htmlgen.tags.body.text.Cite;
+import com.sangupta.htmlgen.tags.body.text.Code;
+import com.sangupta.htmlgen.tags.body.text.Emphasis;
 import com.sangupta.htmlgen.tags.body.text.InlineQuote;
+import com.sangupta.htmlgen.tags.body.text.Italic;
+import com.sangupta.htmlgen.tags.body.text.Small;
 import com.sangupta.htmlgen.tags.body.text.Span;
+import com.sangupta.htmlgen.tags.body.text.Strong;
+import com.sangupta.htmlgen.tags.body.text.Subscript;
+import com.sangupta.htmlgen.tags.body.text.Superscript;
+import com.sangupta.htmlgen.tags.body.text.Underline;
 
 /**
  * 
@@ -949,6 +959,183 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		cell.parent(this);
 		
 		return this.addChild(cell);
+	}
+	
+	public Emphasis em() {
+		return this.em(new Emphasis());
+	}
+	
+	public Emphasis em(String cssClass) {
+		return this.em(new Emphasis(cssClass));
+	}
+	
+	public Emphasis em(Emphasis em) {
+		em.parent(this);
+		
+		this.addChild(em);
+		return em;
+	}
+	
+	public T abbr() {
+		return this.abbr(new Abbreviation());
+	}
+	
+	public T abbr(String text) {
+		return this.abbr(new Abbreviation(text));
+	}
+	
+	public T abbr(String text, String cssClass) {
+		return this.abbr(new Abbreviation(text, cssClass));
+	}
+	
+	public T abbr(Abbreviation abbr) {
+		abbr.parent(this);
+		
+		return this.addChild(abbr);
+	}
+	
+	public T bold() {
+		return this.bold(new Bold());
+	}
+	
+	public T bold(String text) {
+		return this.bold(new Bold(text));
+	}
+	
+	public T bold(String text, String cssClass) {
+		return this.bold(new Bold(text, cssClass));
+	}
+	
+	public T bold(Bold bold) {
+		bold.parent(this);
+		
+		return this.addChild(bold);
+	}
+	
+	public T code() {
+		return this.code(new Code());
+	}
+	
+	public T code(String text) {
+		return this.code(new Code(text));
+	}
+	
+	public T code(String text, String cssClass) {
+		return this.code(new Code(text, cssClass));
+	}
+	
+	public T code(Code code) {
+		code.parent(this);
+		
+		return this.addChild(code);
+	}
+	
+	public T italic() {
+		return this.italic(new Italic());
+	}
+	
+	public T italic(String text) {
+		return this.italic(new Italic(text));
+	}
+	
+	public T italic(String text, String cssClass) {
+		return this.italic(new Italic(text, cssClass));
+	}
+	
+	public T italic(Italic i) {
+		i.parent(this);
+		
+		return this.addChild(i);
+	}
+	
+	public T underline() {
+		return this.underline(new Underline());
+	}
+	
+	public T underline(String text) {
+		return this.underline(new Underline(text));
+	}
+	
+	public T underline(String text, String cssClass) {
+		return this.underline(new Underline(text, cssClass));
+	}
+	
+	public T underline(Underline underline) {
+		underline.parent(this);
+		
+		return this.addChild(underline);
+	}
+	
+	public T small() {
+		return this.small(new Small());
+	}
+	
+	public T small(String text) {
+		return this.small(new Small(text));
+	}
+	
+	public T small(String text, String cssClass) {
+		return this.small(new Small(text, cssClass));
+	}
+	
+	public T small(Small small) {
+		small.parent(this);
+		
+		return this.addChild(small);
+	}
+	
+	public T strong() {
+		return this.strong(new Strong());
+	}
+	
+	public T strong(String text) {
+		return this.strong(new Strong(text));
+	}
+	
+	public T strong(String text, String cssClass) {
+		return this.strong(new Strong(text, cssClass));
+	}
+	
+	public T strong(Strong strong) {
+		strong.parent(this);
+		
+		return this.addChild(strong);
+	}
+	
+	public T sub() {
+		return this.sub(new Subscript());
+	}
+	
+	public T sub(String text) {
+		return this.sub(new Subscript(text));
+	}
+	
+	public T sub(String text, String cssClass) {
+		return this.sub(new Subscript(text, cssClass));
+	}
+	
+	public T sub(Subscript sub) {
+		sub.parent(this);
+		
+		return this.addChild(sub);
+	}
+	
+	public T sup() {
+		return this.sup(new Superscript());
+	}
+	
+	public T sup(String text) {
+		return this.sup(new Superscript(text));
+	}
+	
+	public T sup(String text, String cssClass) {
+		return this.sup(new Superscript(text, cssClass));
+	}
+	
+	public T sup(Superscript sup) {
+		sup.parent(this);
+		
+		return this.addChild(sup);
 	}
 	
 	/**
