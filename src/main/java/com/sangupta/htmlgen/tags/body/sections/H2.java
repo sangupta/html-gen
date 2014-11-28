@@ -19,7 +19,7 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.sections;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
 import com.sangupta.htmlgen.tags.Text;
@@ -29,13 +29,13 @@ import com.sangupta.htmlgen.tags.Text;
  * @author sangupta
  *
  */
-public class H3 extends HtmlBodyElement<H3> {
+public class H2 extends HtmlBodyElement<H2> {
 	
-	public H3() {
-		super("h3", H3.class);
+	public H2() {
+		super("h2", H2.class);
 	}
 	
-	public H3(String text) {
+	public H2(String text) {
 		this();
 		this.addChild(new Text(text));
 	}

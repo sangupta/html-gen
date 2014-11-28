@@ -19,25 +19,24 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.grouping;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
-import com.sangupta.htmlgen.tags.Text;
 
 /**
  * 
  * @author sangupta
  *
  */
-public class H1 extends HtmlBodyElement<H1> {
-	
-	public H1() {
-		super("h1", H1.class);
-	}
-	
-	public H1(String text) {
-		this();
-		this.addChild(new Text(text));
-	}
+public class UnorderedList extends HtmlBodyElement<UnorderedList> {
 
+	public UnorderedList() {
+		super("ul", UnorderedList.class);
+	}
+	
+	public UnorderedList(String cssClass) {
+		this();
+		this.addCssClass(cssClass);
+	}
+	
 }

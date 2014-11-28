@@ -19,7 +19,7 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.grouping;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
 
@@ -28,31 +28,25 @@ import com.sangupta.htmlgen.core.HtmlBodyElement;
  * @author sangupta
  *
  */
-public class Figure extends HtmlBodyElement<Figure> {
+public class BlockQuote extends HtmlBodyElement<BlockQuote> {
 
-	public Figure() {
-		super("figure", Figure.class);
+	public BlockQuote() {
+		super("blockquote", BlockQuote.class);
 	}
 	
-	public Figure(String imageSrc) {
+	public BlockQuote(String cssClass) {
 		this();
-		this.addChild(new Image(imageSrc));
+		this.addCssClass(cssClass);
 	}
 	
-	public Figure(Image image) {
-		this();
-		this.addChild(image);
+	public BlockQuote(String cssClass, String cite) {
+		this(cssClass);
+		this.cite(cite);
 	}
 	
-	public Figure(String imageSrc, String caption) {
-		this(imageSrc);
-		this.addChild(new FigureCaption(caption));
-	}
-	
-	public Figure(Image image, FigureCaption caption) {
-		this();
-		this.addChild(image);
-		this.addChild(caption);
+	public BlockQuote setCite(String cite) {
+		this.attr("cite", cite);
+		return this;
 	}
 	
 }

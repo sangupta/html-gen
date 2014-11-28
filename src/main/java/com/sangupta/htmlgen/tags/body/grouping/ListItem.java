@@ -19,7 +19,7 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.grouping;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
 import com.sangupta.htmlgen.tags.Text;
@@ -29,14 +29,25 @@ import com.sangupta.htmlgen.tags.Text;
  * @author sangupta
  *
  */
-public class Span extends HtmlBodyElement<Span> {
+public class ListItem extends HtmlBodyElement<ListItem> {
 
-	public Span() {
-		super("span", Span.class);
+	public ListItem() {
+		super("li", ListItem.class);
 	}
-
-	public Span(String text) {
+	
+	public ListItem(String text) {
 		this();
-		this.addChild(new Text(text));
+		this.text(text);
 	}
+	
+	public ListItem(String text, String cssClass) {
+		this(text);
+		this.addCssClass(cssClass);
+	}
+	
+	public ListItem text(String text) {
+		this.addChild(new Text(text));
+		return this;
+	}
+	
 }

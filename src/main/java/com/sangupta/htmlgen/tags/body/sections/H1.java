@@ -19,40 +19,25 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.sections;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
+import com.sangupta.htmlgen.tags.Text;
 
 /**
  * 
  * @author sangupta
  *
  */
-public class Form extends HtmlBodyElement<Form> {
+public class H1 extends HtmlBodyElement<H1> {
+	
+	public H1() {
+		super("h1", H1.class);
+	}
+	
+	public H1(String text) {
+		this();
+		this.addChild(new Text(text));
+	}
 
-	public Form() {
-		super("form", Form.class);
-	}
-	
-	public Form(String action) {
-		this();
-		this.attr("action", action);
-	}
-	
-	public Form(String action, String method) {
-		this();
-		this.attr("action", action);
-		this.attr("method", method);
-	}
-	
-	public Form action(String action) {
-		this.attr("action", action);
-		return this;
-	}
-	
-	public Form method(String method) {
-		this.attr("method", method);
-		return this;
-	}
-	
 }

@@ -19,25 +19,34 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.text;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
-import com.sangupta.htmlgen.tags.Text;
 
 /**
  * 
  * @author sangupta
  *
  */
-public class H5 extends HtmlBodyElement<H5> {
-	
-	public H5() {
-		super("h5", H5.class);
-	}
-	
-	public H5(String text) {
-		this();
-		this.addChild(new Text(text));
-	}
+public class InlineQuote extends HtmlBodyElement<InlineQuote> {
 
+	public InlineQuote() {
+		super("q", InlineQuote.class);
+	}
+	
+	public InlineQuote(String cssClass) {
+		this();
+		this.addCssClass(cssClass);
+	}
+	
+	public InlineQuote(String cssClass, String cite) {
+		this(cssClass);
+		this.setCite(cite);
+	}
+	
+	public InlineQuote setCite(String cite) {
+		this.attr("cite", cite);
+		return this;
+	}
+	
 }

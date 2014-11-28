@@ -19,7 +19,7 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.grouping;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
 
@@ -28,13 +28,13 @@ import com.sangupta.htmlgen.core.HtmlBodyElement;
  * @author sangupta
  *
  */
-public class Main extends HtmlBodyElement<Main> {
+public class OrderedList extends HtmlBodyElement<OrderedList> {
 
-	public Main() {
-		super("main", Main.class);
+	public OrderedList() {
+		super("ol", OrderedList.class);
 	}
 	
-	public Main(String cssClass) {
+	public OrderedList(String cssClass) {
 		this();
 		this.addCssClass(cssClass);
 	}

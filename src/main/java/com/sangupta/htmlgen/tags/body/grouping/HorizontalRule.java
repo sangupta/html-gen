@@ -19,35 +19,25 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.grouping;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
-import com.sangupta.htmlgen.tags.Text;
 
 /**
  * 
  * @author sangupta
  *
  */
-public class ListItem extends HtmlBodyElement<ListItem> {
+public class HorizontalRule extends HtmlBodyElement<HorizontalRule> {
 
-	public ListItem() {
-		super("li", ListItem.class);
+	public HorizontalRule() {
+		super("hr", HorizontalRule.class);
+		this.supportsChildren = false;
 	}
 	
-	public ListItem(String text) {
+	public HorizontalRule(String cssClass) {
 		this();
-		this.text(text);
-	}
-	
-	public ListItem(String text, String cssClass) {
-		this(text);
 		this.addCssClass(cssClass);
 	}
-	
-	public ListItem text(String text) {
-		this.addChild(new Text(text));
-		return this;
-	}
-	
+
 }

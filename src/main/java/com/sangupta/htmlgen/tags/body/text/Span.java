@@ -19,19 +19,24 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.text;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
+import com.sangupta.htmlgen.tags.Text;
 
 /**
  * 
  * @author sangupta
  *
  */
-public class Div extends HtmlBodyElement<Div> {
+public class Span extends HtmlBodyElement<Span> {
 
-	public Div() {
-		super("div", Div.class);
+	public Span() {
+		super("span", Span.class);
 	}
 
+	public Span(String text) {
+		this();
+		this.addChild(new Text(text));
+	}
 }

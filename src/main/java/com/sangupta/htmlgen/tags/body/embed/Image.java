@@ -19,25 +19,34 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.embed;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
-import com.sangupta.htmlgen.tags.Text;
 
 /**
  * 
  * @author sangupta
  *
  */
-public class H2 extends HtmlBodyElement<H2> {
+public class Image extends HtmlBodyElement<Image> {
 	
-	public H2() {
-		super("h2", H2.class);
+	public Image() {
+		super("img", Image.class);
 	}
 	
-	public H2(String text) {
+	public Image(String src) {
 		this();
-		this.addChild(new Text(text));
+		this.attr("src", src);
 	}
 
+	public Image width(int width) {
+		this.attr("width", String.valueOf(width));
+		return this.clazzOfT.cast(this);
+	}
+	
+	public Image height(int height) {
+		this.attr("height", String.valueOf(height));
+		return this.clazzOfT.cast(this);
+	}
+	
 }

@@ -24,32 +24,35 @@ package com.sangupta.htmlgen.core;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import com.sangupta.htmlgen.tags.body.Address;
-import com.sangupta.htmlgen.tags.body.Anchor;
-import com.sangupta.htmlgen.tags.body.Article;
-import com.sangupta.htmlgen.tags.body.Div;
-import com.sangupta.htmlgen.tags.body.Figure;
-import com.sangupta.htmlgen.tags.body.FigureCaption;
-import com.sangupta.htmlgen.tags.body.Footer;
-import com.sangupta.htmlgen.tags.body.Form;
-import com.sangupta.htmlgen.tags.body.H1;
-import com.sangupta.htmlgen.tags.body.H2;
-import com.sangupta.htmlgen.tags.body.H3;
-import com.sangupta.htmlgen.tags.body.H4;
-import com.sangupta.htmlgen.tags.body.H5;
-import com.sangupta.htmlgen.tags.body.H6;
-import com.sangupta.htmlgen.tags.body.HGroup;
-import com.sangupta.htmlgen.tags.body.Header;
-import com.sangupta.htmlgen.tags.body.HorizontalRule;
-import com.sangupta.htmlgen.tags.body.IFrame;
-import com.sangupta.htmlgen.tags.body.Image;
-import com.sangupta.htmlgen.tags.body.ListItem;
-import com.sangupta.htmlgen.tags.body.Main;
-import com.sangupta.htmlgen.tags.body.Nav;
-import com.sangupta.htmlgen.tags.body.OrderedList;
-import com.sangupta.htmlgen.tags.body.Section;
-import com.sangupta.htmlgen.tags.body.Span;
-import com.sangupta.htmlgen.tags.body.UnorderedList;
+import com.sangupta.htmlgen.tags.body.embed.IFrame;
+import com.sangupta.htmlgen.tags.body.embed.Image;
+import com.sangupta.htmlgen.tags.body.forms.Form;
+import com.sangupta.htmlgen.tags.body.grouping.BlockQuote;
+import com.sangupta.htmlgen.tags.body.grouping.Div;
+import com.sangupta.htmlgen.tags.body.grouping.Figure;
+import com.sangupta.htmlgen.tags.body.grouping.FigureCaption;
+import com.sangupta.htmlgen.tags.body.grouping.HGroup;
+import com.sangupta.htmlgen.tags.body.grouping.HorizontalRule;
+import com.sangupta.htmlgen.tags.body.grouping.ListItem;
+import com.sangupta.htmlgen.tags.body.grouping.OrderedList;
+import com.sangupta.htmlgen.tags.body.grouping.UnorderedList;
+import com.sangupta.htmlgen.tags.body.sections.Address;
+import com.sangupta.htmlgen.tags.body.sections.Article;
+import com.sangupta.htmlgen.tags.body.sections.Footer;
+import com.sangupta.htmlgen.tags.body.sections.H1;
+import com.sangupta.htmlgen.tags.body.sections.H2;
+import com.sangupta.htmlgen.tags.body.sections.H3;
+import com.sangupta.htmlgen.tags.body.sections.H4;
+import com.sangupta.htmlgen.tags.body.sections.H5;
+import com.sangupta.htmlgen.tags.body.sections.H6;
+import com.sangupta.htmlgen.tags.body.sections.Header;
+import com.sangupta.htmlgen.tags.body.sections.Main;
+import com.sangupta.htmlgen.tags.body.sections.Nav;
+import com.sangupta.htmlgen.tags.body.sections.Section;
+import com.sangupta.htmlgen.tags.body.text.Anchor;
+import com.sangupta.htmlgen.tags.body.text.Cite;
+import com.sangupta.htmlgen.tags.body.text.InlineQuote;
+import com.sangupta.htmlgen.tags.body.text.Span;
 
 /**
  * 
@@ -775,6 +778,59 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		
 		this.addChild(main);
 		return main;
+	}
+	
+	public BlockQuote blockQuote() {
+		return this.blockQuote(new BlockQuote());
+	}
+	
+	public BlockQuote blockQuote(String cssClass) {
+		return this.blockQuote(new BlockQuote(cssClass));
+	}
+	
+	public BlockQuote blockQuote(String cssClass, String cite) {
+		return this.blockQuote(new BlockQuote(cssClass, cite));
+	}
+	
+	public BlockQuote blockQuote(BlockQuote blockQuote) {
+		blockQuote.parent(this);
+		
+		this.addChild(blockQuote);
+		return blockQuote;
+	}
+	
+	public InlineQuote inlineQuote() {
+		return this.inlineQuote(new InlineQuote());
+	}
+	
+	public InlineQuote inlineQuote(String cssClass) {
+		return this.inlineQuote(new InlineQuote(cssClass));
+	}
+	
+	public InlineQuote inlineQuote(String cssClass, String cite) {
+		return this.inlineQuote(new InlineQuote(cssClass, cite));
+	}
+	
+	public InlineQuote inlineQuote(InlineQuote inlineQuote) {
+		inlineQuote.parent(this);
+		
+		this.addChild(inlineQuote);
+		return inlineQuote;
+	}
+	
+	public Cite cite() {
+		return this.cite(new Cite());
+	}
+	
+	public Cite cite(String cssClass) {
+		return this.cite(new Cite(cssClass));
+	}
+	
+	public Cite cite(Cite cite) {
+		cite.parent(this);
+		
+		this.addChild(cite);
+		return cite;
 	}
 	
 	/**

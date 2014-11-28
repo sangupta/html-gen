@@ -19,24 +19,25 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.sections;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
+import com.sangupta.htmlgen.tags.Text;
 
 /**
  * 
  * @author sangupta
  *
  */
-public class HGroup extends HtmlBodyElement<HGroup> {
-
-	public HGroup() {
-		super("hgroup", HGroup.class);
+public class H4 extends HtmlBodyElement<H4> {
+	
+	public H4() {
+		super("h4", H4.class);
 	}
 	
-	public HGroup(String cssClass) {
+	public H4(String text) {
 		this();
-		this.addCssClass(cssClass);
+		this.addChild(new Text(text));
 	}
-	
+
 }

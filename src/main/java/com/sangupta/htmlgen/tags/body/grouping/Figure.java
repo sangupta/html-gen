@@ -19,25 +19,41 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.grouping;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
-import com.sangupta.htmlgen.tags.Text;
+import com.sangupta.htmlgen.tags.body.embed.Image;
 
 /**
  * 
  * @author sangupta
  *
  */
-public class H6 extends HtmlBodyElement<H6> {
-	
-	public H6() {
-		super("h6", H6.class);
-	}
-	
-	public H6(String text) {
-		this();
-		this.addChild(new Text(text));
-	}
+public class Figure extends HtmlBodyElement<Figure> {
 
+	public Figure() {
+		super("figure", Figure.class);
+	}
+	
+	public Figure(String imageSrc) {
+		this();
+		this.addChild(new Image(imageSrc));
+	}
+	
+	public Figure(Image image) {
+		this();
+		this.addChild(image);
+	}
+	
+	public Figure(String imageSrc, String caption) {
+		this(imageSrc);
+		this.addChild(new FigureCaption(caption));
+	}
+	
+	public Figure(Image image, FigureCaption caption) {
+		this();
+		this.addChild(image);
+		this.addChild(caption);
+	}
+	
 }

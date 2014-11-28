@@ -19,7 +19,7 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.grouping;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
 
@@ -28,36 +28,15 @@ import com.sangupta.htmlgen.core.HtmlBodyElement;
  * @author sangupta
  *
  */
-public class IFrame extends HtmlBodyElement<IFrame> {
+public class HGroup extends HtmlBodyElement<HGroup> {
 
-	public IFrame() {
-		super("iframe", IFrame.class);
-		this.supportsChildren = false;
+	public HGroup() {
+		super("hgroup", HGroup.class);
 	}
 	
-	public IFrame(String src) {
+	public HGroup(String cssClass) {
 		this();
-		this.src(src);
-	}
-
-	public IFrame src(String src) {
-		this.attr("src", src);
-		return this;
-	}
-	
-	public IFrame width(int width) {
-		this.attr("width", String.valueOf(width));
-		return this;
-	}
-	
-	public IFrame height(int height) {
-		this.attr("height", String.valueOf(height));
-		return this;
-	}
-	
-	public IFrame type(String type) {
-		this.attr("type", type);
-		return this;
+		this.addCssClass(cssClass);
 	}
 	
 }

@@ -28,8 +28,8 @@ import java.util.Set;
 
 import com.sangupta.htmlgen.HtmlBody;
 import com.sangupta.htmlgen.tags.Text;
-import com.sangupta.htmlgen.tags.body.Div;
-import com.sangupta.htmlgen.tags.body.Span;
+import com.sangupta.htmlgen.tags.body.grouping.Div;
+import com.sangupta.htmlgen.tags.body.text.Span;
 
 /**
  * 

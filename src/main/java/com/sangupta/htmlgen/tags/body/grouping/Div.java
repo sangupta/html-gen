@@ -19,7 +19,7 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.grouping;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
 
@@ -28,15 +28,10 @@ import com.sangupta.htmlgen.core.HtmlBodyElement;
  * @author sangupta
  *
  */
-public class Nav extends HtmlBodyElement<Nav> {
-	
-	public Nav() {
-		super("nav", Nav.class);
-	}
-	
-	public Nav(String cssClass) {
-		this();
-		this.addCssClass(cssClass);
+public class Div extends HtmlBodyElement<Div> {
+
+	public Div() {
+		super("div", Div.class);
 	}
 
 }

@@ -19,24 +19,25 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.sections;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
+import com.sangupta.htmlgen.tags.Text;
 
 /**
  * 
  * @author sangupta
  *
  */
-public class OrderedList extends HtmlBodyElement<OrderedList> {
-
-	public OrderedList() {
-		super("ol", OrderedList.class);
+public class H5 extends HtmlBodyElement<H5> {
+	
+	public H5() {
+		super("h5", H5.class);
 	}
 	
-	public OrderedList(String cssClass) {
+	public H5(String text) {
 		this();
-		this.addCssClass(cssClass);
+		this.addChild(new Text(text));
 	}
-	
+
 }

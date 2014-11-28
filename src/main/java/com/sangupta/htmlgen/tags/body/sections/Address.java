@@ -19,24 +19,24 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.sections;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
+import com.sangupta.htmlgen.tags.Text;
 
 /**
  * 
  * @author sangupta
  *
  */
-public class Article extends HtmlBodyElement<Article> {
+public class Address extends HtmlBodyElement<Address> {
 
-	public Article() {
-		super("article", Article.class);
+	public Address() {
+		super("address", Address.class);
 	}
 	
-	public Article(String cssClass) {
+	public Address(String text) {
 		this();
-		this.addCssClass(cssClass);
+		this.addChild(new Text(text));
 	}
-	
 }

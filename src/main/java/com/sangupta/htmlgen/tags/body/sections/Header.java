@@ -19,7 +19,7 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.sections;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
 
@@ -28,25 +28,19 @@ import com.sangupta.htmlgen.core.HtmlBodyElement;
  * @author sangupta
  *
  */
-public class Image extends HtmlBodyElement<Image> {
-	
-	public Image() {
-		super("img", Image.class);
-	}
-	
-	public Image(String src) {
-		this();
-		this.attr("src", src);
-	}
+public class Header extends HtmlBodyElement<Header> {
 
-	public Image width(int width) {
-		this.attr("width", String.valueOf(width));
-		return this.clazzOfT.cast(this);
+	public Header() {
+		super("header", Header.class);
 	}
 	
-	public Image height(int height) {
-		this.attr("height", String.valueOf(height));
-		return this.clazzOfT.cast(this);
+	public Header(String text) {
+		this();
+		this.text(text);
 	}
 	
+	public Header(String text, String cssClass) {
+		this(text);
+		this.addCssClass(cssClass);
+	}
 }

@@ -19,7 +19,7 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.forms;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
 
@@ -28,20 +28,31 @@ import com.sangupta.htmlgen.core.HtmlBodyElement;
  * @author sangupta
  *
  */
-public class FigureCaption extends HtmlBodyElement<FigureCaption> {
+public class Form extends HtmlBodyElement<Form> {
 
-	public FigureCaption() {
-		super("figcaption", FigureCaption.class);
+	public Form() {
+		super("form", Form.class);
 	}
 	
-	public FigureCaption(String text) {
+	public Form(String action) {
 		this();
-		this.text(text);
+		this.attr("action", action);
 	}
 	
-	public FigureCaption(String text, String cssClass) {
-		this(text);
-		this.addCssClass(cssClass);
+	public Form(String action, String method) {
+		this();
+		this.attr("action", action);
+		this.attr("method", method);
+	}
+	
+	public Form action(String action) {
+		this.attr("action", action);
+		return this;
+	}
+	
+	public Form method(String method) {
+		this.attr("method", method);
+		return this;
 	}
 	
 }

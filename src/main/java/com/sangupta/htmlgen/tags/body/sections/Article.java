@@ -19,7 +19,7 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.sections;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
 
@@ -28,19 +28,15 @@ import com.sangupta.htmlgen.core.HtmlBodyElement;
  * @author sangupta
  *
  */
-public class Header extends HtmlBodyElement<Header> {
+public class Article extends HtmlBodyElement<Article> {
 
-	public Header() {
-		super("header", Header.class);
+	public Article() {
+		super("article", Article.class);
 	}
 	
-	public Header(String text) {
+	public Article(String cssClass) {
 		this();
-		this.text(text);
-	}
-	
-	public Header(String text, String cssClass) {
-		this(text);
 		this.addCssClass(cssClass);
 	}
+	
 }
