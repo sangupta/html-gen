@@ -44,6 +44,7 @@ import com.sangupta.htmlgen.tags.body.HorizontalRule;
 import com.sangupta.htmlgen.tags.body.IFrame;
 import com.sangupta.htmlgen.tags.body.Image;
 import com.sangupta.htmlgen.tags.body.ListItem;
+import com.sangupta.htmlgen.tags.body.Main;
 import com.sangupta.htmlgen.tags.body.Nav;
 import com.sangupta.htmlgen.tags.body.OrderedList;
 import com.sangupta.htmlgen.tags.body.Section;
@@ -759,6 +760,21 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		
 		this.addChild(figureCaption);
 		return figureCaption;
+	}
+	
+	public Main main() {
+		return this.main(new Main());
+	}
+	
+	public Main main(String cssClass) {
+		return this.main(new Main(cssClass));
+	}
+	
+	public Main main(Main main) {
+		main.parent(this);
+		
+		this.addChild(main);
+		return main;
 	}
 	
 	/**
