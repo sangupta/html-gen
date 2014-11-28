@@ -24,6 +24,7 @@ package com.sangupta.htmlgen.core;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import com.sangupta.htmlgen.tags.body.Anchor;
 import com.sangupta.htmlgen.tags.body.Div;
 import com.sangupta.htmlgen.tags.body.H1;
 import com.sangupta.htmlgen.tags.body.H2;
@@ -33,7 +34,10 @@ import com.sangupta.htmlgen.tags.body.H5;
 import com.sangupta.htmlgen.tags.body.H6;
 import com.sangupta.htmlgen.tags.body.IFrame;
 import com.sangupta.htmlgen.tags.body.Image;
+import com.sangupta.htmlgen.tags.body.ListItem;
+import com.sangupta.htmlgen.tags.body.OrderedList;
 import com.sangupta.htmlgen.tags.body.Span;
+import com.sangupta.htmlgen.tags.body.UnorderedList;
 
 /**
  * 
@@ -159,7 +163,16 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public Div div() {
-		Div div = new Div();
+		return this.div(new Div());
+	}
+	
+	/**
+	 * Add given DIV to this element
+	 * 
+	 * @param div
+	 * @return
+	 */
+	public Div div(Div div) {
 		div.parent(this);
 		
 		this.addChild(div);
@@ -173,10 +186,7 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public IFrame iframe(String src) {
-		IFrame iframe = new IFrame(src);
-		iframe.parent(this);
-		this.addChild(iframe);
-		return iframe;
+		return this.iframe(new IFrame(src));
 	}
 	
 	/**
@@ -199,11 +209,7 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public T h1(String text) {
-		H1 h1 = new H1(text);
-		h1.parent(this);
-		
-		this.addChild(h1);
-		return clazzOfT.cast(this);
+		return this.h1(new H1(text));
 	}
 	
 	/**
@@ -216,11 +222,9 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 */
 	public T h1(String text, String cssClass) {
 		H1 h1 = new H1(text);
-		h1.parent(this);
 		h1.addClass(cssClass);
 		
-		this.addChild(h1);
-		return clazzOfT.cast(this);
+		return this.h1(h1);
 	}
 	
 	/**
@@ -244,11 +248,7 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public T h2(String text) {
-		H2 h2 = new H2(text);
-		h2.parent(this);
-		
-		this.addChild(h2);
-		return clazzOfT.cast(this);
+		return this.h2(new H2(text));
 	}
 	
 	/**
@@ -261,11 +261,9 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 */
 	public T h2(String text, String cssClass) {
 		H2 h2 = new H2(text);
-		h2.parent(this);
 		h2.addClass(cssClass);
 		
-		this.addChild(h2);
-		return clazzOfT.cast(this);
+		return this.h2(h2);
 	}
 	
 	/**
@@ -289,11 +287,7 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public T h3(String text) {
-		H3 h3 = new H3(text);
-		h3.parent(this);
-		
-		this.addChild(h3);
-		return clazzOfT.cast(this);
+		return this.h3(new H3(text));
 	}
 	
 	/**
@@ -306,11 +300,9 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 */
 	public T h3(String text, String cssClass) {
 		H3 h3 = new H3(text);
-		h3.parent(this);
 		h3.addClass(cssClass);
 		
-		this.addChild(h3);
-		return clazzOfT.cast(this);
+		return this.h3(h3);
 	}
 	
 	/**
@@ -334,11 +326,7 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public T h4(String text) {
-		H4 h4 = new H4(text);
-		h4.parent(this);
-		
-		this.addChild(h4);
-		return clazzOfT.cast(this);
+		return this.h4(new H4(text));
 	}
 	
 	/**
@@ -351,11 +339,9 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 */
 	public T h4(String text, String cssClass) {
 		H4 h4 = new H4(text);
-		h4.parent(this);
 		h4.addClass(cssClass);
 		
-		this.addChild(h4);
-		return clazzOfT.cast(this);
+		return this.h4(h4);
 	}
 	
 	/**
@@ -379,11 +365,7 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public T h5(String text) {
-		H5 h5 = new H5(text);
-		h5.parent(this);
-		
-		this.addChild(h5);
-		return clazzOfT.cast(this);
+		return this.h5(new H5(text));
 	}
 	
 	/**
@@ -396,11 +378,9 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 */
 	public T h5(String text, String cssClass) {
 		H5 h5 = new H5(text);
-		h5.parent(this);
 		h5.addClass(cssClass);
 		
-		this.addChild(h5);
-		return clazzOfT.cast(this);
+		return this.h5(h5);
 	}
 	
 	/**
@@ -424,11 +404,7 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public T h6(String text) {
-		H6 h6 = new H6(text);
-		h6.parent(this);
-		
-		this.addChild(h6);
-		return clazzOfT.cast(this);
+		return this.h6(new H6(text));
 	}
 	
 	/**
@@ -441,11 +417,9 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 */
 	public T h6(String text, String cssClass) {
 		H6 h6 = new H6(text);
-		h6.parent(this);
 		h6.addClass(cssClass);
 		
-		this.addChild(h6);
-		return clazzOfT.cast(this);
+		return this.h6(h6);
 	}
 	
 	/**
@@ -467,11 +441,7 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public Span span() {
-		Span span = new Span();
-		span.parent(this);
-		
-		this.addChild(span);
-		return span;
+		return this.span(new Span());
 	}
 	
 	/**
@@ -481,7 +451,17 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public Span span(String text) {
-		Span span = new Span(text);
+		return this.span(new Span(text));
+
+	}
+	
+	/**
+	 * Add given SPAN element to this element
+	 * 
+	 * @param span
+	 * @return
+	 */
+	public Span span(Span span) {
 		span.parent(this);
 		
 		this.addChild(span);
@@ -495,11 +475,7 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 	 * @return
 	 */
 	public Image image(String src) {
-		Image image = new Image(src);
-		image.parent(this);
-		
-		this.addChild(image);
-		return image;
+		return this.image(new Image(src));
 	}
 
 	/**
@@ -514,12 +490,10 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		Image image = new Image(src);
 		image.width(width);
 		image.height(height);
-		image.parent(this);
 		
-		this.addChild(image);
-		return image;
+		return this.image(image);
 	}
-
+	
 	/**
 	 * Add the given image to the element
 	 * 
@@ -531,6 +505,85 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		this.addChild(image);
 		
 		return image;
+	}
+	
+	/**
+	 * Add an anchor for the given text.
+	 * 
+	 * @param text
+	 * @return
+	 */
+	public T anchor(String text) {
+		return this.anchor(new Anchor(text));
+	}
+	
+	/**
+	 * Add an anchor for the specified HREF and text
+	 * 
+	 * @param text
+	 * @param href
+	 * @return
+	 */
+	public T anchor(String text, String href) {
+		return this.anchor(new Anchor(href, text));
+	}
+	
+	/**
+	 * Add given anchor to this element
+	 * 
+	 * @param anchor
+	 * @return
+	 */
+	public T anchor(Anchor anchor) {
+		anchor.parent(this);
+		
+		this.addChild(anchor);
+		return this.clazzOfT.cast(this);
+	}
+	
+	public UnorderedList ul() {
+		return this.ul(new UnorderedList());
+	}
+	
+	public UnorderedList ul(String cssClass) {
+		return this.ul(new UnorderedList(cssClass));
+	}
+	
+	public UnorderedList ul(UnorderedList ul) {
+		ul.parent(this);
+		
+		this.addChild(ul);
+		return ul;
+	}
+	
+	public OrderedList ol() {
+		return this.ol(new OrderedList());
+	}
+	
+	public OrderedList ol(String cssClass) {
+		return this.ol(new OrderedList(cssClass));
+	}
+	
+	public OrderedList ol(OrderedList ol) {
+		ol.parent(this);
+		
+		this.addChild(ol);
+		return ol;
+	}
+	
+	public T li(String text) {
+		return this.li(new ListItem(text));
+	}
+	
+	public T li(String text, String cssClass) {
+		return this.li(new ListItem(text, cssClass));
+	}
+	
+	public T li(ListItem li) {
+		li.parent(this);
+		
+		this.addChild(li);
+		return this.clazzOfT.cast(this);
 	}
 	
 	/**
