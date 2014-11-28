@@ -28,6 +28,8 @@ import com.sangupta.htmlgen.tags.body.Address;
 import com.sangupta.htmlgen.tags.body.Anchor;
 import com.sangupta.htmlgen.tags.body.Article;
 import com.sangupta.htmlgen.tags.body.Div;
+import com.sangupta.htmlgen.tags.body.Figure;
+import com.sangupta.htmlgen.tags.body.FigureCaption;
 import com.sangupta.htmlgen.tags.body.Footer;
 import com.sangupta.htmlgen.tags.body.Form;
 import com.sangupta.htmlgen.tags.body.H1;
@@ -711,6 +713,52 @@ public class HtmlBodyElement<T> extends HtmlElement<T> {
 		hr.parent(this);
 		
 		return this.addChild(hr);
+	}
+	
+	public Figure figure() {
+		return this.figure(new Figure());
+	}
+	
+	public Figure figure(String imageSrc) {
+		return this.figure(new Figure(imageSrc));
+	}
+	
+	public Figure figure(String imageSrc, String cssClass) {
+		return this.figure(new Figure(imageSrc, cssClass));
+	}
+	
+	public Figure figure(Image image) {
+		return this.figure(new Figure(image));
+	}
+	
+	public Figure figure(Image image, FigureCaption caption) {
+		return this.figure(new Figure(image, caption));
+	}
+	
+	public Figure figure(Figure figure) {
+		figure.parent(this);
+		
+		this.addChild(figure);
+		return figure;
+	}
+	
+	public FigureCaption figureCaption() {
+		return this.figureCaption(new FigureCaption());
+	}
+	
+	public FigureCaption figureCaption(String text) {
+		return this.figureCaption(new FigureCaption(text));
+	}
+	
+	public FigureCaption figureCaption(String text, String cssClass) {
+		return this.figureCaption(new FigureCaption(text, cssClass));
+	}
+	
+	public FigureCaption figureCaption(FigureCaption figureCaption) {
+		figureCaption.parent(this);
+		
+		this.addChild(figureCaption);
+		return figureCaption;
 	}
 	
 	/**
