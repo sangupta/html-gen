@@ -22,6 +22,7 @@
 package com.sangupta.htmlgen;
 
 import com.sangupta.htmlgen.core.HtmlElement;
+import com.sangupta.htmlgen.tags.head.HtmlDocBase;
 import com.sangupta.htmlgen.tags.head.Link;
 import com.sangupta.htmlgen.tags.head.Meta;
 import com.sangupta.htmlgen.tags.head.Script;
@@ -34,17 +35,40 @@ import com.sangupta.htmlgen.tags.head.Title;
  */
 public class HtmlHead extends HtmlElement<HtmlHead> {
 	
+	/**
+	 * The parent {@link Html} element
+	 */
 	protected final Html parentHtml;
+	
+	/**
+	 * The document {@link HtmlDocBase} to use
+	 */
+	protected HtmlDocBase docBase;
 
+	/**
+	 * Construct a new {@link HtmlHead} element bound to the given {@link Html}
+	 * element
+	 * 
+	 * @param html
+	 *            the {@link Html} parent element to bind to
+	 */
 	public HtmlHead(Html html) {
 		super("head", HtmlHead.class);
 		this.parentHtml = html;
 	}
 	
+	/**
+	 * Add or change the Title for this page.
+	 * 
+	 * @param title
+	 *            the title to set to
+	 *            
+	 * @return the {@link HtmlHead} element over which this method was invoked
+	 */
 	public HtmlHead title(String title) {
 		int index = this.children.indexOf("title");
 		if(index == -1) {
-			this.children.add(new Title().parent(this).text(title));
+			this.children.add(new Title().text(title));
 			return this;
 		}
 		
@@ -84,6 +108,19 @@ public class HtmlHead extends HtmlElement<HtmlHead> {
 	
 	public Html html() {
 		return this.parentHtml;
+	}
+	
+	public HtmlHead base(String href) {
+		return this.base(new HtmlDocBase(href));
+	}
+	
+	public HtmlHead base(String href, String target) {
+		return this.base(new HtmlDocBase(href, target));
+	}
+	
+	public HtmlHead base(HtmlDocBase base) {
+		this.docBase = base;
+		return this;
 	}
 	
 }
