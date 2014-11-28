@@ -4,7 +4,8 @@ html-gen
 Strongly typed HTML generation library for Java.
 
 `html-gen` helps you create HTML code snippets using Java objects. It is useful in situations where
-using templating engines may be an overkill.
+using templating engines may be an overkill. Support all HTML5 elements as listed by Mozilla
+Developer Network at https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list
 
 `html-gen` is an extremely lightweight and independent library - no external dependencies. `JDK 1.6+ compatible`.
 

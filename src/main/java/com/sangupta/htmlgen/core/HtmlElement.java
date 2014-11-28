@@ -47,16 +47,42 @@ public class HtmlElement<T> implements HtmlNode {
 	protected final String name;
 	
 	protected final Class<T> clazzOfT;
+
+	/**
+	 * Whether this element supports children or not
+	 * 
+	 */
+	protected boolean supportsChildren = true;
 	
 	public HtmlElement(String name, Class<T> clazzOfT) {
 		this.name = name.toLowerCase();
 		this.clazzOfT = clazzOfT;
 	}
 	
+	/**
+	 * Return the parent element of this element
+	 * 
+	 */
 	public HtmlNode parent() {
 		return this.parent;
 	}
-	
+
+	/**
+	 * Return the current instance in its own type
+	 * 
+	 * @return
+	 */
+	public T me() {
+		return this.clazzOfT.cast(this);
+	}
+
+	/**
+	 * Find the HTML element matching the given {@link Class} in the current
+	 * elements ancestor hierarchy.
+	 * 
+	 * @param clazz
+	 * @return
+	 */
 	public <X extends HtmlNode> X parent(Class<X> clazz) {
 		HtmlNode parent = this.parent;
 		do {
@@ -99,6 +125,12 @@ public class HtmlElement<T> implements HtmlNode {
 		return parent(Span.class);
 	}
 	
+	/**
+	 * Set the parent ownership of this element
+	 * 
+	 * @param parent
+	 * @return
+	 */
 	public T parent(HtmlNode parent) {
 		this.parent = parent;
 		return clazzOfT.cast(this);
@@ -131,6 +163,10 @@ public class HtmlElement<T> implements HtmlNode {
 	}
 	
 	protected T addChild(HtmlElement<?> child) {
+		if(!this.supportsChildren) {
+			return clazzOfT.cast(this);
+		}
+		
 		this.children.add(child);
 		return clazzOfT.cast(this);
 	}
@@ -225,4 +261,5 @@ public class HtmlElement<T> implements HtmlNode {
 			builder.append("  ");
 		}
 	}
+	
 }

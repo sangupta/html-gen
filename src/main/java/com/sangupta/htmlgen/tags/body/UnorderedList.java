@@ -36,7 +36,7 @@ public class UnorderedList extends HtmlBodyElement<UnorderedList> {
 	
 	public UnorderedList(String cssClass) {
 		this();
-		this.addClass(cssClass);
+		this.addCssClass(cssClass);
 	}
 	
 }

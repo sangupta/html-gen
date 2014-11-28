@@ -42,7 +42,7 @@ public class ListItem extends HtmlBodyElement<ListItem> {
 	
 	public ListItem(String text, String cssClass) {
 		this(text);
-		this.addClass(cssClass);
+		this.addCssClass(cssClass);
 	}
 	
 	public ListItem text(String text) {

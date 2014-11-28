@@ -28,15 +28,31 @@ import com.sangupta.htmlgen.core.HtmlBodyElement;
  * @author sangupta
  *
  */
-public class OrderedList extends HtmlBodyElement<OrderedList> {
+public class Form extends HtmlBodyElement<Form> {
 
-	public OrderedList() {
-		super("ol", OrderedList.class);
+	public Form() {
+		super("form", Form.class);
 	}
 	
-	public OrderedList(String cssClass) {
+	public Form(String action) {
 		this();
-		this.addCssClass(cssClass);
+		this.attr("action", action);
+	}
+	
+	public Form(String action, String method) {
+		this();
+		this.attr("action", action);
+		this.attr("method", method);
+	}
+	
+	public Form action(String action) {
+		this.attr("action", action);
+		return this;
+	}
+	
+	public Form method(String method) {
+		this.attr("method", method);
+		return this;
 	}
 	
 }
