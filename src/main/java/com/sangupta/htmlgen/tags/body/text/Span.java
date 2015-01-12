@@ -19,20 +19,24 @@
  * 
  */
 
-package com.sangupta.htmlgen.core;
+package com.sangupta.htmlgen.tags.body.text;
+
+import com.sangupta.htmlgen.core.HtmlBodyElement;
+import com.sangupta.htmlgen.tags.Text;
 
 /**
  * 
  * @author sangupta
  *
  */
-public interface HtmlNode {
-	
-//	/**
-//	 * Return the parent node for this HTML node
-//	 * 
-//	 * @return
-//	 */
-//	public HtmlNode parent();
+public class Span extends HtmlBodyElement<Span> {
 
+	public Span() {
+		super("span", Span.class);
+	}
+
+	public Span(String text) {
+		this();
+		this.addChild(new Text(text));
+	}
 }

@@ -19,20 +19,25 @@
  * 
  */
 
-package com.sangupta.htmlgen.core;
+package com.sangupta.htmlgen.tags.body.sections;
+
+import com.sangupta.htmlgen.core.HtmlBodyElement;
+import com.sangupta.htmlgen.tags.Text;
 
 /**
  * 
  * @author sangupta
  *
  */
-public interface HtmlNode {
+public class H6 extends HtmlBodyElement<H6> {
 	
-//	/**
-//	 * Return the parent node for this HTML node
-//	 * 
-//	 * @return
-//	 */
-//	public HtmlNode parent();
+	public H6() {
+		super("h6", H6.class);
+	}
+	
+	public H6(String text) {
+		this();
+		this.addChild(new Text(text));
+	}
 
 }

@@ -1,7 +1,7 @@
 /**
  *
  * html-gen - HTML generation library
- * Copyright (c) 2014-2015, Sandeep Gupta
+ * Copyright (c) 2014, Sandeep Gupta
  * 
  * http://sangupta.com/projects/htmlgen
  * 
@@ -19,20 +19,24 @@
  * 
  */
 
-package com.sangupta.htmlgen.core;
+package com.sangupta.htmlgen.tags.body.sections;
+
+import com.sangupta.htmlgen.core.HtmlBodyElement;
 
 /**
  * 
  * @author sangupta
  *
  */
-public interface HtmlNode {
+public class Nav extends HtmlBodyElement<Nav> {
 	
-//	/**
-//	 * Return the parent node for this HTML node
-//	 * 
-//	 * @return
-//	 */
-//	public HtmlNode parent();
+	public Nav() {
+		super("nav", Nav.class);
+	}
+	
+	public Nav(String cssClass) {
+		this();
+		this.addCssClass(cssClass);
+	}
 
 }

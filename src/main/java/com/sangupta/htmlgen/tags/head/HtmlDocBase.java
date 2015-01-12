@@ -1,7 +1,7 @@
 /**
  *
  * html-gen - HTML generation library
- * Copyright (c) 2014-2015, Sandeep Gupta
+ * Copyright (c) 2014, Sandeep Gupta
  * 
  * http://sangupta.com/projects/htmlgen
  * 
@@ -19,20 +19,30 @@
  * 
  */
 
-package com.sangupta.htmlgen.core;
+package com.sangupta.htmlgen.tags.head;
+
+import com.sangupta.htmlgen.core.HtmlElement;
 
 /**
+ * Refer https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
  * 
  * @author sangupta
  *
  */
-public interface HtmlNode {
+public class HtmlDocBase extends HtmlElement<HtmlDocBase> {
 	
-//	/**
-//	 * Return the parent node for this HTML node
-//	 * 
-//	 * @return
-//	 */
-//	public HtmlNode parent();
+	public HtmlDocBase() {
+		super("base", HtmlDocBase.class);
+	}
+	
+	public HtmlDocBase(String href) {
+		this();
+		this.attr("href", href);
+	}
+	
+	public HtmlDocBase(String href, String target) {
+		this(href);
+		this.attr("target", target);
+	}
 
 }

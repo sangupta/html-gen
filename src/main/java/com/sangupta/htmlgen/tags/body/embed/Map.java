@@ -1,7 +1,7 @@
 /**
  *
  * html-gen - HTML generation library
- * Copyright (c) 2014-2015, Sandeep Gupta
+ * Copyright (c) 2014, Sandeep Gupta
  * 
  * http://sangupta.com/projects/htmlgen
  * 
@@ -19,7 +19,7 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.embed;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
 
@@ -28,36 +28,32 @@ import com.sangupta.htmlgen.core.HtmlBodyElement;
  * @author sangupta
  *
  */
-public class IFrame extends HtmlBodyElement<IFrame> {
+public class Map extends HtmlBodyElement<Map> {
 
-	public IFrame() {
-		super("iframe", IFrame.class);
-		this.supportsChildren = false;
+	public Map() {
+		super("map", Map.class);
 	}
-	
-	public IFrame(String src) {
+
+	public Map(String name) {
 		this();
-		this.src(src);
-	}
-
-	public IFrame src(String src) {
-		this.attr("src", src);
-		return this;
+		this.attr("name", name);
 	}
 	
-	public IFrame width(int width) {
-		this.attr("width", String.valueOf(width));
-		return this;
+	public Area area() {
+		return this.area(new Area());
 	}
 	
-	public IFrame height(int height) {
-		this.attr("height", String.valueOf(height));
-		return this;
+	public Area area(String shape) {
+		return this.area(new Area(shape));
 	}
 	
-	public IFrame type(String type) {
-		this.attr("type", type);
-		return this;
+	public Area area(String shape, String href) {
+		return this.area(new Area(shape, href));
+	}
+	
+	public Area area(Area area) {
+		this.addChild(area);
+		return area;
 	}
 	
 }

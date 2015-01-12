@@ -1,7 +1,7 @@
 /**
  *
  * html-gen - HTML generation library
- * Copyright (c) 2014-2015, Sandeep Gupta
+ * Copyright (c) 2014, Sandeep Gupta
  * 
  * http://sangupta.com/projects/htmlgen
  * 
@@ -19,25 +19,29 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.grouping;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
-import com.sangupta.htmlgen.tags.Text;
 
 /**
  * 
  * @author sangupta
  *
  */
-public class H2 extends HtmlBodyElement<H2> {
-	
-	public H2() {
-		super("h2", H2.class);
-	}
-	
-	public H2(String text) {
-		this();
-		this.addChild(new Text(text));
-	}
+public class FigureCaption extends HtmlBodyElement<FigureCaption> {
 
+	public FigureCaption() {
+		super("figcaption", FigureCaption.class);
+	}
+	
+	public FigureCaption(String text) {
+		this();
+		this.text(text);
+	}
+	
+	public FigureCaption(String text, String cssClass) {
+		this(text);
+		this.addCssClass(cssClass);
+	}
+	
 }

@@ -1,7 +1,7 @@
 /**
  *
  * html-gen - HTML generation library
- * Copyright (c) 2014-2015, Sandeep Gupta
+ * Copyright (c) 2014, Sandeep Gupta
  * 
  * http://sangupta.com/projects/htmlgen
  * 
@@ -19,20 +19,36 @@
  * 
  */
 
-package com.sangupta.htmlgen.core;
+package com.sangupta.htmlgen.tags.body.grouping;
+
+import com.sangupta.htmlgen.core.HtmlBodyElement;
 
 /**
  * 
  * @author sangupta
  *
  */
-public interface HtmlNode {
-	
-//	/**
-//	 * Return the parent node for this HTML node
-//	 * 
-//	 * @return
-//	 */
-//	public HtmlNode parent();
+public class UnorderedList extends HtmlBodyElement<UnorderedList> {
 
+	public UnorderedList() {
+		super("ul", UnorderedList.class);
+	}
+	
+	public UnorderedList(String cssClass) {
+		this();
+		this.addCssClass(cssClass);
+	}
+	
+	public UnorderedList li(String text) {
+		return this.li(new ListItem(text));
+	}
+	
+	public UnorderedList li(String text, String cssClass) {
+		return this.li(new ListItem(text, cssClass));
+	}
+	
+	public UnorderedList li(ListItem li) {
+		return this.addChild(li);
+	}
+	
 }

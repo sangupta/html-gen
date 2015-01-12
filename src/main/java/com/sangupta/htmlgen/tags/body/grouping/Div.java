@@ -19,20 +19,19 @@
  * 
  */
 
-package com.sangupta.htmlgen.core;
+package com.sangupta.htmlgen.tags.body.grouping;
+
+import com.sangupta.htmlgen.core.HtmlBodyElement;
 
 /**
  * 
  * @author sangupta
  *
  */
-public interface HtmlNode {
-	
-//	/**
-//	 * Return the parent node for this HTML node
-//	 * 
-//	 * @return
-//	 */
-//	public HtmlNode parent();
+public class Div extends HtmlBodyElement<Div> {
+
+	public Div() {
+		super("div", Div.class);
+	}
 
 }

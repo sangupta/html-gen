@@ -29,9 +29,16 @@ import com.sangupta.htmlgen.core.HtmlBodyElement;
  *
  */
 public class HtmlBody extends HtmlBodyElement<HtmlBody> {
+	
+	protected final Html parentHtml;
 
-	public HtmlBody() {
+	public HtmlBody(Html html) {
 		super("body", HtmlBody.class);
+		this.parentHtml = html;
+	}
+
+	public Html html() {
+		return this.parentHtml;
 	}
 	
 }

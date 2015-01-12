@@ -1,7 +1,7 @@
 /**
  *
  * html-gen - HTML generation library
- * Copyright (c) 2014-2015, Sandeep Gupta
+ * Copyright (c) 2014, Sandeep Gupta
  * 
  * http://sangupta.com/projects/htmlgen
  * 
@@ -19,24 +19,34 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.text;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
-import com.sangupta.htmlgen.tags.Text;
 
 /**
  * 
  * @author sangupta
  *
  */
-public class Span extends HtmlBodyElement<Span> {
+public class InlineQuote extends HtmlBodyElement<InlineQuote> {
 
-	public Span() {
-		super("span", Span.class);
+	public InlineQuote() {
+		super("q", InlineQuote.class);
 	}
-
-	public Span(String text) {
+	
+	public InlineQuote(String cssClass) {
 		this();
-		this.addChild(new Text(text));
+		this.addCssClass(cssClass);
 	}
+	
+	public InlineQuote(String cssClass, String cite) {
+		this(cssClass);
+		this.setCite(cite);
+	}
+	
+	public InlineQuote setCite(String cite) {
+		this.attr("cite", cite);
+		return this;
+	}
+	
 }

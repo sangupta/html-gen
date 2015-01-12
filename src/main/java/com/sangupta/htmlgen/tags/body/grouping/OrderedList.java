@@ -1,7 +1,7 @@
 /**
  *
  * html-gen - HTML generation library
- * Copyright (c) 2014-2015, Sandeep Gupta
+ * Copyright (c) 2014, Sandeep Gupta
  * 
  * http://sangupta.com/projects/htmlgen
  * 
@@ -19,25 +19,36 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.grouping;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
-import com.sangupta.htmlgen.tags.Text;
 
 /**
  * 
  * @author sangupta
  *
  */
-public class H5 extends HtmlBodyElement<H5> {
-	
-	public H5() {
-		super("h5", H5.class);
-	}
-	
-	public H5(String text) {
-		this();
-		this.addChild(new Text(text));
-	}
+public class OrderedList extends HtmlBodyElement<OrderedList> {
 
+	public OrderedList() {
+		super("ol", OrderedList.class);
+	}
+	
+	public OrderedList(String cssClass) {
+		this();
+		this.addCssClass(cssClass);
+	}
+	
+	public OrderedList li(String text) {
+		return this.li(new ListItem(text));
+	}
+	
+	public OrderedList li(String text, String cssClass) {
+		return this.li(new ListItem(text, cssClass));
+	}
+	
+	public OrderedList li(ListItem li) {
+		return this.addChild(li);
+	}
+	
 }

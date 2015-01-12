@@ -22,7 +22,7 @@
 package com.sangupta.htmlgen;
 
 import com.sangupta.htmlgen.core.DocType;
-import com.sangupta.htmlgen.tags.body.Div;
+import com.sangupta.htmlgen.tags.body.grouping.Div;
 import com.sangupta.htmlgen.tags.head.Link;
 
 /**
@@ -40,12 +40,18 @@ public class MakeHtmlTest {
 		
 		HtmlBody body = html.body();
 		body.iframe("https://www.youtube.com/watch?v=09YtvBkHTTo");
-		body.addClass("question-page new-topbar");
+		body.addCssClass("question-page new-topbar");
 		
-		Div div = body.div().addClass("topbar").div().addClass("child node").text("hello world");
-		div.span("in bold").parent(Div.class).text("after span").parentBody().iframe("sangupta");
+		Div div = body.div().addCssClass("topbar").div().addCssClass("child node").text("hello world");
+		div.span("in bold").parent(Div.class).text("after span").parent(HtmlBody.class).iframe("sangupta");
 		
-//		body.h1("some heading");
+		body.h1("h1").h2("h2").h3("h3").h4("h4").h5("h5").h6("h6");
+		
+		body.anchor("snagupta.com", "sandeep gupta").anchor("anohter link", "some other site").anchor("hello");
+		
+		body.ul().li("first").li("second").li("third").li("fourth");
+		body.ol().li("first").li("second").li("third").li("fourth");
+
 		System.out.println(html.asString());
 	}
 

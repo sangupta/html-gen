@@ -1,7 +1,7 @@
 /**
  *
  * html-gen - HTML generation library
- * Copyright (c) 2014-2015, Sandeep Gupta
+ * Copyright (c) 2014, Sandeep Gupta
  * 
  * http://sangupta.com/projects/htmlgen
  * 
@@ -19,34 +19,24 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.sections;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
+import com.sangupta.htmlgen.tags.Text;
 
 /**
  * 
  * @author sangupta
  *
  */
-public class Image extends HtmlBodyElement<Image> {
-	
-	public Image() {
-		super("img", Image.class);
-	}
-	
-	public Image(String src) {
-		this();
-		this.attr("src", src);
-	}
+public class Address extends HtmlBodyElement<Address> {
 
-	public Image width(int width) {
-		this.attr("width", String.valueOf(width));
-		return this.clazzOfT.cast(this);
+	public Address() {
+		super("address", Address.class);
 	}
 	
-	public Image height(int height) {
-		this.attr("height", String.valueOf(height));
-		return this.clazzOfT.cast(this);
+	public Address(String text) {
+		this();
+		this.addChild(new Text(text));
 	}
-	
 }

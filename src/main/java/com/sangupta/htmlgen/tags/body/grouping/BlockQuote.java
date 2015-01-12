@@ -1,7 +1,7 @@
 /**
  *
  * html-gen - HTML generation library
- * Copyright (c) 2014-2015, Sandeep Gupta
+ * Copyright (c) 2014, Sandeep Gupta
  * 
  * http://sangupta.com/projects/htmlgen
  * 
@@ -19,20 +19,34 @@
  * 
  */
 
-package com.sangupta.htmlgen.core;
+package com.sangupta.htmlgen.tags.body.grouping;
+
+import com.sangupta.htmlgen.core.HtmlBodyElement;
 
 /**
  * 
  * @author sangupta
  *
  */
-public interface HtmlNode {
-	
-//	/**
-//	 * Return the parent node for this HTML node
-//	 * 
-//	 * @return
-//	 */
-//	public HtmlNode parent();
+public class BlockQuote extends HtmlBodyElement<BlockQuote> {
 
+	public BlockQuote() {
+		super("blockquote", BlockQuote.class);
+	}
+	
+	public BlockQuote(String cssClass) {
+		this();
+		this.addCssClass(cssClass);
+	}
+	
+	public BlockQuote(String cssClass, String cite) {
+		this(cssClass);
+		this.cite(cite);
+	}
+	
+	public BlockQuote setCite(String cite) {
+		this.attr("cite", cite);
+		return this;
+	}
+	
 }

@@ -1,7 +1,7 @@
 /**
  *
  * html-gen - HTML generation library
- * Copyright (c) 2014-2015, Sandeep Gupta
+ * Copyright (c) 2014, Sandeep Gupta
  * 
  * http://sangupta.com/projects/htmlgen
  * 
@@ -19,20 +19,26 @@
  * 
  */
 
-package com.sangupta.htmlgen.core;
+package com.sangupta.htmlgen.tags.body.grouping;
+
+import com.sangupta.htmlgen.core.HtmlBodyElement;
 
 /**
  * 
  * @author sangupta
  *
  */
-public interface HtmlNode {
+public class HorizontalRule extends HtmlBodyElement<HorizontalRule> {
+
+	public HorizontalRule() {
+		super("hr", HorizontalRule.class);
+		this.supportsChildren = false;
+		this.outputEndOfTag = false;
+	}
 	
-//	/**
-//	 * Return the parent node for this HTML node
-//	 * 
-//	 * @return
-//	 */
-//	public HtmlNode parent();
+	public HorizontalRule(String cssClass) {
+		this();
+		this.addCssClass(cssClass);
+	}
 
 }

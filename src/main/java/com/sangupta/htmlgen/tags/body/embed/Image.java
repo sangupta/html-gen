@@ -19,20 +19,34 @@
  * 
  */
 
-package com.sangupta.htmlgen.core;
+package com.sangupta.htmlgen.tags.body.embed;
+
+import com.sangupta.htmlgen.core.HtmlBodyElement;
 
 /**
  * 
  * @author sangupta
  *
  */
-public interface HtmlNode {
+public class Image extends HtmlBodyElement<Image> {
 	
-//	/**
-//	 * Return the parent node for this HTML node
-//	 * 
-//	 * @return
-//	 */
-//	public HtmlNode parent();
+	public Image() {
+		super("img", Image.class);
+	}
+	
+	public Image(String src) {
+		this();
+		this.attr("src", src);
+	}
 
+	public Image width(int width) {
+		this.attr("width", String.valueOf(width));
+		return this.clazzOfT.cast(this);
+	}
+	
+	public Image height(int height) {
+		this.attr("height", String.valueOf(height));
+		return this.clazzOfT.cast(this);
+	}
+	
 }

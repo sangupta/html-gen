@@ -1,7 +1,7 @@
 /**
  *
  * html-gen - HTML generation library
- * Copyright (c) 2014-2015, Sandeep Gupta
+ * Copyright (c) 2014, Sandeep Gupta
  * 
  * http://sangupta.com/projects/htmlgen
  * 
@@ -19,20 +19,41 @@
  * 
  */
 
-package com.sangupta.htmlgen.core;
+package com.sangupta.htmlgen.tags.body.text;
+
+import com.sangupta.htmlgen.core.HtmlBodyElement;
+import com.sangupta.htmlgen.tags.Text;
 
 /**
  * 
  * @author sangupta
  *
  */
-public interface HtmlNode {
-	
-//	/**
-//	 * Return the parent node for this HTML node
-//	 * 
-//	 * @return
-//	 */
-//	public HtmlNode parent();
+public class Anchor extends HtmlBodyElement<Anchor> {
 
+	public Anchor() {
+		super("a", Anchor.class);
+	}
+	
+	public Anchor(String text) {
+		this();
+		this.text(text);
+	}
+	
+	public Anchor(String href, String text) {
+		this();
+		this.href(href);
+		this.text(text);
+	}
+	
+	public Anchor href(String href) {
+		this.attr("href", href);
+		return this;
+	}
+
+	public Anchor text(String text) {
+		this.addChild(new Text(text));
+		return this;
+	}
+	
 }

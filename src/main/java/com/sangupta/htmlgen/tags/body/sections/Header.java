@@ -1,7 +1,7 @@
 /**
  *
  * html-gen - HTML generation library
- * Copyright (c) 2014-2015, Sandeep Gupta
+ * Copyright (c) 2014, Sandeep Gupta
  * 
  * http://sangupta.com/projects/htmlgen
  * 
@@ -19,25 +19,28 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.sections;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
-import com.sangupta.htmlgen.tags.Text;
 
 /**
  * 
  * @author sangupta
  *
  */
-public class H6 extends HtmlBodyElement<H6> {
-	
-	public H6() {
-		super("h6", H6.class);
-	}
-	
-	public H6(String text) {
-		this();
-		this.addChild(new Text(text));
-	}
+public class Header extends HtmlBodyElement<Header> {
 
+	public Header() {
+		super("header", Header.class);
+	}
+	
+	public Header(String text) {
+		this();
+		this.text(text);
+	}
+	
+	public Header(String text, String cssClass) {
+		this(text);
+		this.addCssClass(cssClass);
+	}
 }

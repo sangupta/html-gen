@@ -19,25 +19,45 @@
  * 
  */
 
-package com.sangupta.htmlgen.tags.body;
+package com.sangupta.htmlgen.tags.body.embed;
 
 import com.sangupta.htmlgen.core.HtmlBodyElement;
-import com.sangupta.htmlgen.tags.Text;
 
 /**
  * 
  * @author sangupta
  *
  */
-public class H1 extends HtmlBodyElement<H1> {
-	
-	public H1() {
-		super("h1", H1.class);
+public class IFrame extends HtmlBodyElement<IFrame> {
+
+	public IFrame() {
+		super("iframe", IFrame.class);
+		this.supportsChildren = false;
 	}
 	
-	public H1(String text) {
+	public IFrame(String src) {
 		this();
-		this.addChild(new Text(text));
+		this.src(src);
 	}
 
+	public IFrame src(String src) {
+		this.attr("src", src);
+		return this;
+	}
+	
+	public IFrame width(int width) {
+		this.attr("width", String.valueOf(width));
+		return this;
+	}
+	
+	public IFrame height(int height) {
+		this.attr("height", String.valueOf(height));
+		return this;
+	}
+	
+	public IFrame type(String type) {
+		this.attr("type", type);
+		return this;
+	}
+	
 }

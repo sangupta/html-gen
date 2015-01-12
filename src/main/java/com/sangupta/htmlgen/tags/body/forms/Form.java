@@ -1,7 +1,7 @@
 /**
  *
  * html-gen - HTML generation library
- * Copyright (c) 2014-2015, Sandeep Gupta
+ * Copyright (c) 2014, Sandeep Gupta
  * 
  * http://sangupta.com/projects/htmlgen
  * 
@@ -19,20 +19,40 @@
  * 
  */
 
-package com.sangupta.htmlgen.core;
+package com.sangupta.htmlgen.tags.body.forms;
+
+import com.sangupta.htmlgen.core.HtmlBodyElement;
 
 /**
  * 
  * @author sangupta
  *
  */
-public interface HtmlNode {
-	
-//	/**
-//	 * Return the parent node for this HTML node
-//	 * 
-//	 * @return
-//	 */
-//	public HtmlNode parent();
+public class Form extends HtmlBodyElement<Form> {
 
+	public Form() {
+		super("form", Form.class);
+	}
+	
+	public Form(String action) {
+		this();
+		this.attr("action", action);
+	}
+	
+	public Form(String action, String method) {
+		this();
+		this.attr("action", action);
+		this.attr("method", method);
+	}
+	
+	public Form action(String action) {
+		this.attr("action", action);
+		return this;
+	}
+	
+	public Form method(String method) {
+		this.attr("method", method);
+		return this;
+	}
+	
 }
