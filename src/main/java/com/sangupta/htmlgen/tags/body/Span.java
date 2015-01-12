@@ -1,7 +1,7 @@
 /**
  *
  * html-gen - HTML generation library
- * Copyright (c) 2014, Sandeep Gupta
+ * Copyright (c) 2014-2015, Sandeep Gupta
  * 
  * http://sangupta.com/projects/htmlgen
  * 

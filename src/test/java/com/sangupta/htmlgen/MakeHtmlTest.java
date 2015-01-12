@@ -1,7 +1,7 @@
 /**
  *
  * html-gen - HTML generation library
- * Copyright (c) 2014, Sandeep Gupta
+ * Copyright (c) 2014-2015, Sandeep Gupta
  * 
  * http://sangupta.com/projects/htmlgen
  * 
@@ -43,8 +43,9 @@ public class MakeHtmlTest {
 		body.addClass("question-page new-topbar");
 		
 		Div div = body.div().addClass("topbar").div().addClass("child node").text("hello world");
-		div.span("in bold").parent(Div.class).text("after span").parent(HtmlBody.class).iframe("sangupta");
+		div.span("in bold").parent(Div.class).text("after span").parentBody().iframe("sangupta");
 		
+//		body.h1("some heading");
 		System.out.println(html.asString());
 	}
 
